@@ -8,13 +8,17 @@
 </head>
 <body>
     <div class="Form">
+      <div th:if="${validationError}" th:each="error : ${validationError}">
+        <label class="text-danger" th:text="${error}"></label>
+      </div>
       <h1>勤怠修正</h1>
+      <form th:action="@{/user/create}" th:object="${userRequest}">
         <div class="Form-Item">
-          <p class="Form-Item-Label">勤怠ID</p>
+          <p class="Form-Item-Label">勤怠ID<span class="text-danger">※</span></p>
           <input type="text" class="Form-Item-Input" placeholder="" disabled>
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">UserId</p>
+          <p class="Form-Item-Label">UserId<span class="text-danger">※</span></p>
           <input type="text" class="Form-Item-Input" placeholder="例）0000">
         </div>
         <div class="Form-Item">
@@ -31,35 +35,36 @@
           </select>
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">出勤日</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）yyyymmdd">
+          <p class="Form-Item-Label">出勤日<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）yyyymmdd">
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">出勤時間</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）00:00">
+          <p class="Form-Item-Label">出勤時間<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">退勤日</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）yyyymmdd">
+          <p class="Form-Item-Label">退勤日<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）yyyymmdd">
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">退勤時間</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）00:00">
+          <p class="Form-Item-Label">退勤時間<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">稼働時間</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）00:00">
+          <p class="Form-Item-Label">稼働時間<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
-          <p class="Form-Item-Label">休憩時間</p>
-          <input type="email" class="Form-Item-Input" placeholder="例）00:00">
+          <p class="Form-Item-Label">休憩時間<span class="text-danger">※</span></p>
+          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label isMsg">備考</p>
           <textarea class="Form-Item-Textarea"></textarea>
         </div>
-        <input type="submit" class="Form-Btn" value="戻る">
-        <input type="submit" class="Form-Btn" value="登録">
-      </div>
+        <button type="submit" class="Form-Btn"><a href="/templates/attendanceList">戻る</a></button>
+        <button type="submit" class="Form-Btn">登録</button>
+      </form>
+    </div>
 </body>
 </html>
