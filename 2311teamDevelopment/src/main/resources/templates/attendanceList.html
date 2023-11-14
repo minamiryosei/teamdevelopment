@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/Users/suzukiaiko/Documents/teamdevelopment/2311teamDevelopment/src/main/resources/static/css/attendanceList.css">
+    <title>勤怠一覧</title>
+    <link rel="stylesheet" href="attendanceList.css">
 </head>
 <body>
     <h1>勤怠一覧</h1>
@@ -26,16 +26,16 @@
          <td th:text="*{attendance_Id}"></td>
          <td th:text="*{user_Id}"></td>
          <td th:text="*{status}"></td>
-         <td th:text="${workday}"></td>
-         <td th:text="${user.workday_Time}"></td>
-         <td th:text="${closing_Day}"></td>
-         <td th:text="${closing_Time}"></td>
+         <td th:text="${start_date}"></td>
+         <td th:text="${start_time}"></td>
+         <td th:text="${leaving_date}"></td>
+         <td th:text="${leaving_time}"></td>
          <td th:text="${operating_Time}"></td>
          <td th:text="${break_Time}"></td>
          <td th:text="*{remarks}"></td>
-         <td><input type="submit" class="Form-Btn" value="編集"></td>
+         <td><input type="submit" value="編集"></td>
         </tr>
     </table>
-    <input type="submit" class="Form-Btn" value="戻る">
+    <input type="submit" value="戻る">
 </body>
 </html>
