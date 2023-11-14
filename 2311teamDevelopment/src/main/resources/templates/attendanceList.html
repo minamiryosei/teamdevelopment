@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/Users/suzukiaiko/Documents/teamdevelopment/2311teamDevelopment/src/main/resources/static/css/attendanceList.css">
+</head>
+<body>
+    <h1>勤怠一覧</h1>
+    <table class="design10">
+        <tr>
+         <th>勤怠ID</th>
+         <th>UserID</th>
+         <th>ステータス</th>
+         <th>出勤日</th>
+         <th>出勤時間</th>
+         <th>退勤日</th>
+         <th>退勤時間</th>
+         <th>稼働時間</th>
+         <th>休憩時間</th>
+         <th>備考</th>
+         <th></th>
+        </tr>
+        <tr th:each="user : ${userlist}" th:object="${user}">
+         <td th:text="*{attendance_Id}"></td>
+         <td th:text="*{user_Id}"></td>
+         <td th:text="*{status}"></td>
+         <td th:text="${workday}"></td>
+         <td th:text="${user.workday_Time}"></td>
+         <td th:text="${closing_Day}"></td>
+         <td th:text="${closing_Time}"></td>
+         <td th:text="${operating_Time}"></td>
+         <td th:text="${break_Time}"></td>
+         <td th:text="*{remarks}"></td>
+         <td><input type="submit" class="Form-Btn" value="編集"></td>
+        </tr>
+    </table>
+    <input type="submit" class="Form-Btn" value="戻る">
+</body>
+</html>
