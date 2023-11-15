@@ -1,4 +1,4 @@
-.design10 {
+   .design10 {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
@@ -6,10 +6,19 @@
    }
    .design10 th {
     padding: 10px;
-    border-bottom: solid 4px #778ca3;
-    color: #778ca3
+    border-bottom: solid 4px black;
    }
    .design10 td {
     padding: 10px;
-    border-bottom: solid 1px #778ca3;
+    border-bottom: solid 1px black;
+   }
+   .Form-Btn1 {
+    background: #5bc8ac;
+    color: #fff;
+    border-radius: 6px;
+   }
+   .Form-Btn2 {
+    background: #a0a6a5;
+    color: #fff;
+    border-radius: 6px;
    }
