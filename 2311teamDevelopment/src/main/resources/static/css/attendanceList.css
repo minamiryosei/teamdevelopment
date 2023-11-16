@@ -1,14 +1,14 @@
-   .design10 {
+   .table {
     width: 100%;
     text-align: center;
     border-collapse: collapse;
     border-spacing: 0;
    }
-   .design10 th {
+   .table th {
     padding: 10px;
     border-bottom: solid 4px black;
    }
-   .design10 td {
+   .table td {
     padding: 10px;
     border-bottom: solid 1px black;
    }
