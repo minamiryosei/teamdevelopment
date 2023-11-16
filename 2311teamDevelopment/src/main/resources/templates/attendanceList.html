@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>勤怠一覧</h1>
-    <table class="design10">
+    <table class="table">
         <tr>
          <th>勤怠ID</th>
          <th>UserID</th>
@@ -33,9 +33,9 @@
          <td th:text="${operating_Time}"></td>
          <td th:text="${break_Time}"></td>
          <td th:text="*{remarks}"></td>
-         <td><button type="submit"><a th:href="@{/attendanceCorrect/{id}(id=*{id})}">編集</a></button></td>
+         <td><button type="submit" class="Form-Btn1"><a th:href="@{/attendanceCorrect/{id}(id=*{id})}">編集</a></button></td>
         </tr>
     </table>
-    <button type="submit"><a th:href="@{/mypage}">戻る</a></button>
+    <button type="submit" class="Form-Btn2"><a th:href="@{/mypage}">戻る</a></button>
 </body>
 </html>
