@@ -15,51 +15,69 @@ import lombok.Data;
  * ユーザー情報 Entity
  */
 @Data
+@Time
 @Entity
-@Table(name = "user" , schema = "public" )
+@Table(name = "attendance" , schema = "public" )
 public class AttendanceEntity  {
 
 	/**
-	 * ID
+	 * 勤怠ID
 	 */
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
+	@Column(name = "attendance_id")
 	//2行追加
-	private Long id;
+	private Long attendance_id;
 	/**
-	 * 名前
+	 * UserId
 	 */
-	@Column(name = "name")
-	private String name;
-
+	@Column(name = "user_id")
+	private Long user_id;
 	/**
-	 * 住所
+	 * ステータス
 	 */
-	@Column(name = "address")
-	private String address;
-
+	@Column(name = "status")
+	private String status;
 	/**
-	 * 電話番号
+	 * 出勤日
 	 */
 	//2行追加
-	@Column(name ="phone")
-	private String phone;
+	@Column(name ="start_date")
+	private Date start_date;
 	/**
-	 * 更新日時
+	 * 出勤時間
 	 */
 	//2行追加
-	@Column(name = "update_date")
-	private Date updateDate;
+	@Column(name = "start_time")
+	private Time start_time;
 	/**
-	 * 登録日時
+	 * 退勤日
 	 */
-	@Column(name = "create_date")
-	private Date createDate;
-
+	@Column(name = "leaving_date")
+	private Date leaving_date;
 	/**
-	 * 削除日時
+	 * 退勤時間
 	 */
-	@Column(name = "delete_date")
-	private Date deleteDate;
+	@Column(name = "leaving_time")
+	private Time leaving_time;
+	/**
+	 * 稼働時間
+	 */
+	@Column(name = "working_time")
+	private Time working_time;
+	/**
+	 * 休憩時間１
+	 */
+	@Column(name = "break_time1")
+	private Time break_time1;
+	/**
+	 * 休憩時間２
+	 */
+	@Column(name = "break_time2")
+	private Time break_time2;
+	/**
+	 * 備考
+	 */
+	@Column(name = "comments")
+	private String comments;
 }
