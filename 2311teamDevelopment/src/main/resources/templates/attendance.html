@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="attendance.css">
+    <title>出勤報告</title>
+</head>
+<body>
+    
+    <div class="Form">
+        <h1>出勤報告</h1>
+        <div class="Form-Item">
+          <p class="Form-Item-Label">
+            <span class="Form-Item-Label-Required">必須</span>UserId
+          </p>
+          <input type="text" class="Form-Item-Input" placeholder="例）100056">
+        </div>
+        <div class="Form-Item">
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
+          <select name="name" class="Form-Item-Input">
+            <option value="太郎">出勤</option>
+            <option value="二郎">遅刻</option>
+            <option value="三郎">欠席</option>
+            <option value="三郎">代休</option>
+            <option value="三郎">所定休</option>
+            <option value="三郎">有休</option>
+            <option value="三郎">その他</option>
+          </select>
+        </div>
+        <div class="Form-Item">
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
+          <input type="date" id="date" class="Form-Item-Input">
+        </div>
+        <div class="Form-Item">
+          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
+          <input type="time" id="time" class="Form-Item-Input">
+        </div>
+        <div class="Form-Item">
+          <p class="Form-Item-Label isMsg">備考</p>
+          <textarea class="Form-Item-Textarea"></textarea>
+        </div>
+        <button type="button" class="button1" >登録</button>
+        <button type="button" class="button2" >戻る</button>
+      </div>  
+</body>
+</html>
