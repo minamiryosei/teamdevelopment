@@ -1,3 +1,4 @@
+
 package com.example.demo.dto;
 
 import java.io.Serializable;
@@ -13,7 +14,7 @@ import lombok.EqualsAndHashCode;
  */
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class AttendanceUpdateRequest extends AttendanceRequest implements Serializable {
+public class AttendanceListUpdateRequest extends AttendanceListRequest implements Serializable {
 
   /**
    * ユーザーID

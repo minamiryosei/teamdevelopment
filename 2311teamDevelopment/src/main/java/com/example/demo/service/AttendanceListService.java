@@ -7,27 +7,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.dto.AttendanceUpdateRequest;
-import com.example.demo.entity.AttendanceEntity;
-import com.example.demo.repository.AttendanceRepository;
+import com.example.demo.dto.AttendanceListUpdateRequest;
+import com.example.demo.entity.AttendanceListEntity;
+import com.example.demo.repository.AttendanceListRepository;
 
 /**
  * ユーザー情報 Service
  */
 @Service
 @Transactional(rollbackFor = Exception.class)
-public class AttendanceService {
+public class AttendanceListService {
 	/**
 	 * ユーザー情報 Repository
 	 */
 	//2行追加
 	@Autowired
-	private AttendanceRepository attendanceRepository;
+	private AttendanceListRepository attendanceRepository;
 	/**
 	 * ユーザー情報 全検索
 	 * @return  検索結果
 	 */
-	public List<AttendanceEntity> searchAll() {
+	public List<AttendanceListEntity> searchAll() {
 		//1行追加
 		return attendanceRepository.findAll();
 	}
@@ -35,20 +35,20 @@ public class AttendanceService {
 	 * ユーザー情報 主キー検索
 	 * @return  検索結果
 	 */
-	public AttendanceEntity findById(Long id) {
+	public AttendanceListEntity findById(Long attendance_id) {
 		//実装1行
-		return attendanceRepository.findById(id).get();
+		return attendanceRepository.findById(attendance_id).get();
 	}
 
 	/**
 	 * ユーザー情報 更新
 	 * @param  user ユーザー情報
 	 */
-	public void update(AttendanceUpdateRequest attendanceUpdateRequest) {
+	public void update(AttendanceListUpdateRequest attendanceUpdateRequest) {
 		//実装6行
-		AttendanceEntity user = findById(attendanceUpdateRequest.getId());
-	    user.setAddress(attendanceUpdateRequest.getAddress());
-	    user.setName(attendanceUpdateRequest.getName());
+		AttendanceListEntity user = findById(attendanceUpdateRequest.getId());
+	    user.setuser_id(attendanceUpdateRequest.getuser_id());
+	    user.setstatus(attendanceUpdateRequest.getstatus());
 	    user.setPhone(attendanceUpdateRequest.getPhone());
 	    user.setUpdateDate(new Date());
 	    attendanceRepository.save(user);
