@@ -9,43 +9,44 @@
 </head>
 
 <body>
-    <div class="Form">
-        <h1>ユーザ編集・削除</h1>
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-                <span>userID</span>
-            </p>
-            <input type="text" class="Form-Item-Input" placeholder="" disabled>
+    <form action="送信先のURL" method="post">
+        <div class="Form">
+            <h1>ユーザ編集・削除</h1>
+            <div class="Form-Item">
+                <p class="Form-Item-Label">
+                    <span>userID</span>
+                </p>
+                <input type="text" class="Form-Item-Input" placeholder="" disabled>
+            </div>
+            <div class="Form-Item">
+                <p class="Form-Item-Label">
+                    <span>名前</span>
+                </p>
+                <input type="text" class="Form-Item-Input" placeholder="○○○○">
+            </div>
+            <div class="Form-Item">
+                <p class="Form-Item-Label">
+                    <span>カナ</span>
+                </p>
+                <input type="text" class="Form-Item-Input" placeholder="○○○○">
+            </div>
+            <div class="Form-Item">
+                <p class="Form-Item-Label">
+                    <span>メールアドレス</span>
+                </p>
+                <input type="email" class="Form-Item-Input" placeholder="○○○○">
+            </div>
+            <div class="Form-Item">
+                <p class="Form-Item-Label">
+                    <span>パスワード</span>
+                </p>
+                <input type="password" class="Form-Item-Input" placeholder="○○○○">
+            </div>
+            <button type="submit" class="Form-Btn">登録</button>
+            <button type="button" class="Form-Btn-Delete">削除</button>
+            <button type="button" class="Form-Btn-Back">戻る</button>
         </div>
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-                <span>名前</span>
-            </p>
-            <input type="text" class="Form-Item-Input" placeholder="○○○○">
-        </div>
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-                <span>カナ</span>
-            </p>
-            <input type="text" class="Form-Item-Input" placeholder="○○○○">
-        </div>
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-                <span>メールアドレス</span>
-            </p>
-            <input type="text" class="Form-Item-Input" placeholder="○○○○">
-        </div>
-        <div class="Form-Item">
-            <p class="Form-Item-Label">
-                <span>パスワード</span>
-            </p>
-            <input type="text" class="Form-Item-Input" placeholder="○○○○">
-        </div>
-        <button type="submit" class="Form-Btn">登録</button>
-        <button type="submit" class="Form-Btn-Delete">削除</button>
-        <button type="submit" class="Form-Btn-Back">戻る</button>
-    </div>
-
+    </form>
 </body>
 
 </html>
