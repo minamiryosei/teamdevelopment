@@ -1,3 +1,4 @@
+
 package com.example.demo.entity;
 
 import java.util.Date;
@@ -18,7 +19,7 @@ import lombok.Data;
 @Time
 @Entity
 @Table(name = "attendance" , schema = "public" )
-public class AttendanceEntity  {
+public class AttendanceListEntity  {
 
 	/**
 	 * 勤怠ID

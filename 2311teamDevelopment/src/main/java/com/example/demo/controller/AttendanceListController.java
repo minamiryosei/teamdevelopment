@@ -1,3 +1,4 @@
+
 package com.example.demo.controller;
 
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import com.example.demo.service.AttendanceService;
 	 * ユーザー情報 Controller
 	 */
 	@Controller
-	public class AttendanceController {
+	public class AttendanceListController {
 	  /**
 	   * ユーザー情報 Service
 	   */

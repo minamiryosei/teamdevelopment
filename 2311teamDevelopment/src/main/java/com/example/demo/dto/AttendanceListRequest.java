@@ -1,3 +1,4 @@
+
 package com.example.demo.dto;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ import lombok.Data;
  * ユーザー情報 リクエストデータ
  */
 @Data
-public class AttendanceRequest implements Serializable {
+public class AttendanceListRequest implements Serializable {
   /**
    * 名前
    */
