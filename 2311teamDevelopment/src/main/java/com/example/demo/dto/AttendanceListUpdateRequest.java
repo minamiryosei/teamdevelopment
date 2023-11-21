@@ -20,5 +20,5 @@ public class AttendanceListUpdateRequest extends AttendanceListRequest implement
    * ユーザーID
    */
   @NotNull
-  private Long id;
+  private Long attendance_id;
 }

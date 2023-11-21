@@ -1,6 +1,7 @@
 
 package com.example.demo.entity;
 
+import java.sql.Time;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,7 +17,6 @@ import lombok.Data;
  * ユーザー情報 Entity
  */
 @Data
-@Time
 @Entity
 @Table(name = "attendance" , schema = "public" )
 public class AttendanceListEntity  {
@@ -27,7 +27,6 @@ public class AttendanceListEntity  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "attendance_id")
-	//2行追加
 	private Long attendance_id;
 	/**
 	 * UserId
@@ -42,13 +41,11 @@ public class AttendanceListEntity  {
 	/**
 	 * 出勤日
 	 */
-	//2行追加
 	@Column(name ="start_date")
 	private Date start_date;
 	/**
 	 * 出勤時間
 	 */
-	//2行追加
 	@Column(name = "start_time")
 	private Time start_time;
 	/**

@@ -19,13 +19,11 @@ public class AttendanceListRequest implements Serializable {
    */
   @NotEmpty(message = "名前を入力してください")
   @Size(max = 100, message = "名前は100桁以内で入力してください")
- //実装1行
+
  private String name;
   /**
    * 住所
    */
-//文字数255、エラーメッセージ”住所は255桁以内で入力してください”でバリデーションかけること
- //実装2行
   @Size(max = 255, message = "住所は桁以内で入力してください")
   private String address;
   /**

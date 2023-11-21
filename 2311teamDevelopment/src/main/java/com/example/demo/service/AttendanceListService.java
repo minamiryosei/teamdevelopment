@@ -1,6 +1,5 @@
 package com.example.demo.service;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,21 +35,23 @@ public class AttendanceListService {
 	 * @return  検索結果
 	 */
 	public AttendanceListEntity findById(Long attendance_id) {
-		//実装1行
 		return attendanceRepository.findById(attendance_id).get();
 	}
-
 	/**
 	 * ユーザー情報 更新
 	 * @param  user ユーザー情報
 	 */
 	public void update(AttendanceListUpdateRequest attendanceUpdateRequest) {
-		//実装6行
-		AttendanceListEntity user = findById(attendanceUpdateRequest.getId());
-	    user.setuser_id(attendanceUpdateRequest.getuser_id());
-	    user.setstatus(attendanceUpdateRequest.getstatus());
-	    user.setPhone(attendanceUpdateRequest.getPhone());
-	    user.setUpdateDate(new Date());
-	    attendanceRepository.save(user);
+		AttendanceListEntity attendance = findById(attendanceUpdateRequest.getAttendance_id());
+//		attendance.setUser_id(attendanceUpdateRequest.getUser_id());
+//		attendance.setStatus(attendanceUpdateRequest.getStatus());
+//		attendance.setStart_date(attendanceUpdateRequest.getStart_date());
+//		attendance.setStart_time(attendanceUpdateRequest.getStart_time());
+//		attendance.setLeaving_date(attendanceUpdateRequest.getLeaving_date());
+//		attendance.setLeaving_time(attendanceUpdateRequest.getLeaving_time());
+//		attendance.setWorking_time(attendanceUpdateRequest.getWorking_time());
+//		attendance.setWorking_time(attendanceUpdateRequest.getWorking_time());
+//		attendance.setComments(attendanceUpdateRequest.getComments());
+	    attendanceRepository.save(attendance);
 	}
 }
