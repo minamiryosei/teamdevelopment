@@ -1,0 +1,42 @@
+package com.example.demo.dto;
+
+import java.io.Serializable;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data 
+public class AttendanceRequest implements Serializable{
+
+/**
+ * ユーザー情報 リクエストデータ
+ */
+ /**
+   * UserId
+   */
+  @NotEmpty(message = "UserIdを入力してください")
+  @Size(max = 10, message = "UserIdは10桁以内で入力してください")
+ //実装1行
+  private String userId;
+ 
+  
+  
+  
+  /**
+   * 住所
+   */
+//文字数255、エラーメッセージ”住所は255桁以内で入力してください”でバリデーションかけること
+ //実装2行
+  @Size(max = 255, message = "住所は255桁以内で入力してください")
+  private String address;
+  
+  /**
+   * 電話番号
+   */
+  @Pattern(regexp = "0\\d{1,4}-\\d{1,4}-\\d{4}", message = "電話番号の形式で入力してください")
+  private String phone;
+  
+}
