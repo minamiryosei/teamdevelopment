@@ -9,7 +9,7 @@
 <body>
     <h1>勤怠一覧</h1>
     <table class="table">
-        <tr>
+        <tr>s
          <th>勤怠ID</th>
          <th>UserID</th>
          <th>ステータス</th>
@@ -22,7 +22,7 @@
          <th>備考</th>
          <th></th>
         </tr>
-        <tr th:each="user : ${userlist}" th:object="${user}">
+        <tr th:each="attendanceListEntity : ${templatesattendanceList}" th:object="${attendanceListEntity}">
          <td th:text="*{attendance_Id}"></td>
          <td th:text="*{user_Id}"></td>
          <td th:text="*{status}"></td>
@@ -30,10 +30,11 @@
          <td th:text="${start_time}"></td>
          <td th:text="${leaving_date}"></td>
          <td th:text="${leaving_time}"></td>
-         <td th:text="${operating_Time}"></td>
-         <td th:text="${break_Time}"></td>
-         <td th:text="*{remarks}"></td>
-         <td><button type="button" class="Form-Btn1"><a th:href="@{/attendanceCorrect/{id}(id=*{id})}">編集</a></button></td>
+         <td th:text="${working_time}"></td>
+         <td th:text="${break_time1}"></td>
+         <td th:text="${break_time2}"></td>
+         <td th:text="*{comments}"></td>
+         <td><button type="button" class="Form-Btn1"><a th:href="@{/templates/{attendance_id}(id=*{id})}">編集</a></button></td>
         </tr>
     </table>
     <button type="button" class="Form-Btn2"><a th:href="@{/mypage}">戻る</a></button>

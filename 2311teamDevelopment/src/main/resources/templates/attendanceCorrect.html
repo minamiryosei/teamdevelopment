@@ -12,7 +12,7 @@
         <label class="text-danger" th:text="${error}"></label>
       </div>
       <h1>勤怠修正</h1>
-      <form th:action="@{/user/create}" th:object="${userRequest}">
+      <form th:action="@{/templates/attendanceCorrect}" th:object="${userRequest}">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
           <input type="text" class="Form-Item-Input" placeholder="" disabled>
@@ -36,27 +36,28 @@
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">出勤日</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）yyyymmdd">
+          <input type="date" class="Form-Item-Input" placeholder="例）yyyymmdd">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">出勤時間</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
+          <input type="time" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">退勤日</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）yyyymmdd">
+          <input type="date" class="Form-Item-Input" placeholder="例）yyyymmdd">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">退勤時間</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
+          <input type="time" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">稼働時間</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
+          <input type="time" class="Form-Item-Input" placeholder="例）00:00">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">休憩時間</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）00:00">
+          <input type="time" id="time" class="Form-Item-Input">
+          <input type="time" id="time" class="Form-Item-Input">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">修正理由</p>

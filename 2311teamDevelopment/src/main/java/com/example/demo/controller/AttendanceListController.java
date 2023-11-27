@@ -41,13 +41,14 @@ import com.example.demo.service.AttendanceListService;
 	    model.addAttribute("templatesattendanceList",list);
 	    return "templates/attendancelist";
 	  }
+	  
 		/**
 		   * ユーザー編集画面を表示
 		   * @param  id 表示するユーザーID
 		   * @param  model Model
 		   * @return  ユーザー編集画面
 		   */
-		  @GetMapping("/templates/{id}/attendanceList")
+		  @GetMapping("/templates/{id}/attendanceCorrect")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
 			AttendanceListEntity attendance = attendanceService.findById(attendance_id);
 			AttendanceListUpdateRequest attendanceUpdateRequest = new AttendanceListUpdateRequest();
@@ -59,6 +60,8 @@ import com.example.demo.service.AttendanceListService;
 //			attendanceUpdateRequest.setLeaving_date(attendance.getLeaving_date());
 //			attendanceUpdateRequest.setLeaving_time(attendance.getLeaving_time());
 //			attendanceUpdateRequest.setWorking_time(attendance.getWorking_time());
+//			attendanceUpdateRequest.setBreak_time1(attendance.getBreak_time1());
+//			attendanceUpdateRequest.setBreak_time2(attendance.getBreak_time2());
 //			attendanceUpdateRequest.setComments(attendance.getComments());
 		    model.addAttribute("attendanceUpdateRequest", attendanceUpdateRequest);
 		    return "templates/attendanceCorrect";
@@ -77,7 +80,7 @@ import com.example.demo.service.AttendanceListService;
 		        errorList.add(error.getDefaultMessage());
 		      }
 		      model.addAttribute("validationError", errorList);
-		      return "user/attendanceCorrect";
+		      return "templates/attendanceCorrect";
 		    }
 		    // ユーザー情報の更新)
 		    attendanceService.update(attendanceUpdateRequest);

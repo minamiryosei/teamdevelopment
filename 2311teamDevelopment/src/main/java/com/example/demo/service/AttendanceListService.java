@@ -27,7 +27,6 @@ public class AttendanceListService {
 	 * @return  検索結果
 	 */
 	public List<AttendanceListEntity> searchAll() {
-		//1行追加
 		return attendanceRepository.findAll();
 	}
 	/**
