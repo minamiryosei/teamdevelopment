@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +23,7 @@
          <th>備考</th>
          <th></th>
         </tr>
-        <tr th:each="attendanceListEntity : ${templatesattendanceList}" th:object="${attendanceListEntity}">
+        <tr th:each="attendanceListEntity : ${displayList}" th:object="${displayList}">
          <td th:text="*{attendance_Id}"></td>
          <td th:text="*{user_Id}"></td>
          <td th:text="*{status}"></td>
