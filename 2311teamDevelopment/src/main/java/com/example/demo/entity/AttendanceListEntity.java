@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "attendance_table" , schema = "public" )
+@Table(name = "attendance" , schema = "public" )
 public class AttendanceListEntity  {
 
 	/**
