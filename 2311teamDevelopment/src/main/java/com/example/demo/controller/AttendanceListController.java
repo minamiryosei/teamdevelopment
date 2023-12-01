@@ -24,12 +24,13 @@ import com.example.demo.service.AttendanceListService;
 	  /**
 	   * 勤怠情報一覧画面を表示
 	   * @param  model Model
-	   * @return  ユーザー情報一覧画面のHTML
+	   * @return  勤怠情報一覧画面のHTML
 	   */
 		@RequestMapping(value = "/templates/attendanceList")
 		public String displayList(Model model) {
 	    List<AttendanceListEntity> list = attendanceService.searchAll();
 	    model.addAttribute("List",list);
+	    model.addAttribute("templatesattendanceList",list);
 	    return "templates/attendanceList";
 	  }
 }
