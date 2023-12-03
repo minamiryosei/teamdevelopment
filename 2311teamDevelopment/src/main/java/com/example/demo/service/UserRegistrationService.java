@@ -21,6 +21,16 @@ public class UserRegistrationService {
   return userRegistrationRepository.findAll();
  }
 
+ public UserRegistrationEntity findById(Long id) {
+	 return userRegistrationRepository.findById(id).get();
+ }
+
+ public void update(UserEditDeleteRequest userEditDeleteRequest) {
+	 UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getId());
+	 userRegistrationEntity.setName(userEditDeleteRequest.getName());
+
+ }
+
 
 
 
