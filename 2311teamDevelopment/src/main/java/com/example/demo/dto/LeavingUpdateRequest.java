@@ -9,11 +9,11 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @EqualsAndHashCode(callSuper=false)
-public class AttendanceUpdateRequest extends AttendanceRequest implements Serializable {
+public class LeavingUpdateRequest extends LeavingRequest implements Serializable{
 
-  /**
-   * ユーザーID
-   */
-  @NotNull
-  private Integer id;
+	  /**
+	   * ユーザーID
+	   */
+	  @NotNull
+	  private Integer id;
 }

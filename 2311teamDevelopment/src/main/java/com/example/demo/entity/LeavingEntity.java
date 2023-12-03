@@ -1,6 +1,5 @@
 package com.example.demo.entity;
 
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -18,7 +17,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "attendance" , schema = "public" )
-public class AttendanceEntity {
+public class LeavingEntity {
 	/**
 	 * 勤怠ID
 	 */
@@ -41,18 +40,27 @@ public class AttendanceEntity {
 	private String Status;
 
 	/**
-	 * 出勤日
+	 * 退勤日
 	 */
-	@Column(name = "start_date")
-	private LocalDate StarteDate;
+	@Column(name = "leaving_date")
+	private LocalDate LervingDate;
 
 	/**
-	 * 出勤時間
+	 * 退勤時間
 	 */
-	@Column(name = "start_time")
-	private LocalTime StartTime;
+	@Column(name = "leaving_time")
+	private LocalTime LeavingTime;
+	
+	/**
+	 * 休憩時間1
+	 */
+	@Column(name = "break_time")
+	private LocalTime BreakTime;
+
+	/**
+	 * 休憩時間2
+	 */
+	@Column(name = "break_times")
+	private LocalTime BreakTimes;
 
 }
-	
-
-
