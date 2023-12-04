@@ -19,10 +19,10 @@ public class AttendanceService {
 //出勤新規登録
 public void create(AttendanceRequest attendanceRequest) {
 	AttendanceEntity attendance = new AttendanceEntity();
-//	attendance.setUserId(attendanceRequest.getuser_id());
-//	attendance.setStatus(attendanceRequest.getstatus());
-//	attendance.setStartDate(attendanceRequest.getStart_date());
-//	attendance.setStertTime(attendanceRequest.getstart_Time());
+	attendance.setUserId(attendanceRequest.getUserId());
+	attendance.setStatus(attendanceRequest.getStatus());
+	attendance.setStarteDate(attendanceRequest.getStartDate());
+	attendance.setStartTime(attendanceRequest.getStartTime());
 
 	attendanceRepository.save(attendance);
 }
