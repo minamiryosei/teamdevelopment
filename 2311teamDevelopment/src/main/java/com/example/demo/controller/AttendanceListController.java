@@ -34,11 +34,6 @@ import com.example.demo.service.AttendanceListService;
 		public String displayList(Model model) {
 	    List<AttendanceListEntity> list = attendanceService.searchAll();
 	    model.addAttribute("List",list);
-	    model.addAttribute("templatesattendanceList",list);
 	    return "templates/attendanceList";
-<<<<<<< Updated upstream
-	  }
-=======
 	  }	 
->>>>>>> Stashed changes
 }
