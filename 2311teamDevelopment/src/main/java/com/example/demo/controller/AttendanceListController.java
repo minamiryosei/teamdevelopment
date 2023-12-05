@@ -12,7 +12,11 @@ import com.example.demo.entity.AttendanceListEntity;
 import com.example.demo.service.AttendanceListService;
 
 	/**
+<<<<<<< Updated upstream
 	 * 勤怠一覧 Controller
+=======
+	 * 勤怠情報 Controller
+>>>>>>> Stashed changes
 	 */
 	@Controller
 	public class AttendanceListController {
@@ -32,5 +36,9 @@ import com.example.demo.service.AttendanceListService;
 	    model.addAttribute("List",list);
 	    model.addAttribute("templatesattendanceList",list);
 	    return "templates/attendanceList";
+<<<<<<< Updated upstream
 	  }
+=======
+	  }	 
+>>>>>>> Stashed changes
 }
