@@ -23,15 +23,15 @@ import com.example.demo.service.AttendanceCorrectService;
 	@Controller
 public class AttendanceCorrectController {
 		/**
-		 * ユーザー情報 Service
+		 * 勤怠情報 Service
 		 */
 		@Autowired
 		private AttendanceCorrectService attendanceService;
 		/**
-		   * ユーザー編集画面を表示
-		   * @param  id 表示するユーザーID
+		   * 勤怠編集画面を表示
+		   * @param  id 表示する勤怠ID
 		   * @param  model Model
-		   * @return  ユーザー編集画面
+		   * @return  勤怠修正画面
 		   */
 		  @GetMapping("/templates/{id}/attendanceCorrect")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
@@ -49,13 +49,13 @@ public class AttendanceCorrectController {
 			attendanceUpdateRequest.setBreak_time2(attendance.getBreak_time2());
 			attendanceUpdateRequest.setComments(attendance.getComments());
 		    model.addAttribute("attendanceUpdateRequest", attendanceUpdateRequest);
-		    return "templates/attendanceCorrect";
+		    return "attendanceCorrect";
 		  }
 		  /**
-		   * ユーザー更新
+		   * 勤怠修正
 		   * @param  userRequest リクエストデータ
 		   * @param  model Model
-		   * @return  ユーザー情報詳細画面
+		   * @return  勤怠情報修正画面
 		   */
 		  @RequestMapping("/templates/attendanceCorrect")
 		  public String update(@Validated  @ModelAttribute  AttendanceCorrectUpdateRequest attendanceUpdateRequest, BindingResult result, Model model) {
@@ -65,9 +65,9 @@ public class AttendanceCorrectController {
 		        errorList.add(error.getDefaultMessage());
 		      }
 		      model.addAttribute("validationError", errorList);
-		      return "templates/attendanceCorrect";
+		      return "attendanceCorrect";
 		    }
-		    // ユーザー情報の更新)
+		    // 勤怠情報の修正
 		    attendanceService.update(attendanceUpdateRequest);
 		    return String.format("redirect:/attendanceList/%d", attendanceUpdateRequest.getAttendance_id());
 		  }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>勤怠修正</title>
-    <link rel="stylesheet" href="attendanceCorrect.css">
+    <link href="@{/css/attendanceCorrect.css}" rel="stylesheet">
 </head>
 <body>
     <div class="Form">
@@ -12,7 +12,7 @@
         <label class="text-danger" th:text="${error}"></label>
       </div>
       <h1>勤怠修正</h1>
-      <form th:action="@{/templates/attendanceCorrect}" th:object="${userRequest}">
+      <form th:action="@{update}" th:object="${userRequest}" method="post">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
           <input type="text" class="Form-Item-Input" placeholder="" disabled>
