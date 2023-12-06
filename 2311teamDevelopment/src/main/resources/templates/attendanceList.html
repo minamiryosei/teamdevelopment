@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>勤怠一覧</title>
-    <link rel="stylesheet" href="attendanceList.css">
+    <link rel="stylesheet" href="@{/css/attendanceList.css}">
 </head>
 <body>
     <h1>勤怠一覧</h1>
@@ -23,7 +23,7 @@
          <th>備考</th>
          <th></th>
         </tr>
-        <tr th:each=" attendance : ${attendancelist}" th:object="${attendance}">
+        <tr th:each=" attendance_table : ${attendancelist}" th:object="${attendance_table}">
          <td th:text="*{attendance_Id}"></td>
          <td th:text="*{user_Id}"></td>
          <td th:text="*{status}"></td>

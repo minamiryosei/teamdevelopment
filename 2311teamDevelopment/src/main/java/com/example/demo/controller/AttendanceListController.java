@@ -32,8 +32,8 @@ import com.example.demo.service.AttendanceListService;
 	   */
 		@GetMapping(value = "/templates/attendanceList")
 		public String displayList(Model model) {
-	    List<AttendanceListEntity> templatesattendanceList = attendanceService.searchAll();
-	    model.addAttribute("templatesattendanceList",templatesattendanceList);
-	    return "templates/attendanceList";
+	    List<AttendanceListEntity> attendancelist = attendanceService.searchAll();
+	    model.addAttribute("attendancelist",attendancelist);
+	    return "attendanceList";
 		}
 }
