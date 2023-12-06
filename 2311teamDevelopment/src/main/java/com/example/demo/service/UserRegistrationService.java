@@ -25,13 +25,13 @@ public class UserRegistrationService {
 	 return userRegistrationRepository.findById(id).get();
  }
 
- public void update(UserEditDeleteRequest userEditDeleteRequest) {
-	 UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getId());
-	 userRegistrationEntity.setName(userEditDeleteRequest.getName());
+ //public void update(UserEditDeleteRequest userEditDeleteRequest)// {
+	 //UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getId());//
+	// userRegistrationEntity.setName(userEditDeleteRequest.getName());//
 
  }
 
 
 
 
-}
+//}//
