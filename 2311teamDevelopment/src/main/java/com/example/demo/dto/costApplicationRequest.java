@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -16,13 +17,12 @@ public class costApplicationRequest implements Serializable {
 	  /**
 	   * User_id
 	   */
-	  @NotEmpty(message = "UserIDを入力してください")
-	  @Size(max = 100, message = "名前は100桁以内で入力してください")
-	  private Integer user_id;
+	 @NotEmpty(message = "UserIDを入力してください")
+	  private String user_id;
 	  /**
 	   * 申請日
 	   */
-	  @NotEmpty(message = "申請日を選択してください")
+	  @NotNull(message = "申請日を選択してください")
 	  private Date application_day;
 	  /**
 	   * 項目
@@ -33,7 +33,7 @@ public class costApplicationRequest implements Serializable {
 	   * 金額
 	   */
 	  @NotEmpty(message = "金額を入力してください")
-	  private Integer cost;
+	  private String cost;
 	  /**
 	   * 備考
 	   */
