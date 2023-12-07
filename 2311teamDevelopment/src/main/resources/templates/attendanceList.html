@@ -35,7 +35,7 @@
          <td th:text="*{break_time1}"></td>
          <td th:text="*{break_time2}"></td>
          <td th:text="*{comments}"></td>
-         <td><button type="button" class="Form-Btn1"><a th:href="@{/templates/{attendance_id}(attendance_id=*{attendance_id})}">編集</a></button></td>
+         <td><button type="button" class="Form-Btn1"><a th:href="@{/templates/{attendance_id}/edit(attendance_id=*{attendance_id})}">編集</a></button></td>
         </tr>
     </table>
     <button type="button" class="Form-Btn2"><a th:href="@{/mypage}">戻る</a></button>

@@ -33,7 +33,7 @@ public class AttendanceCorrectController {
 		   * @param  model Model
 		   * @return  ユーザー編集画面
 		   */
-		  @GetMapping("/templates/{id}/attendanceCorrect")
+		  @GetMapping("/templates/{id}/edit")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
 			AttendanceListEntity attendance = attendanceService.findById(attendance_id);
 			AttendanceCorrectUpdateRequest attendanceUpdateRequest = new AttendanceCorrectUpdateRequest();
@@ -49,7 +49,7 @@ public class AttendanceCorrectController {
 			attendanceUpdateRequest.setBreak_time2(attendance.getBreak_time2());
 			attendanceUpdateRequest.setComments(attendance.getComments());
 		    model.addAttribute("attendanceUpdateRequest", attendanceUpdateRequest);
-		    return "templates/attendanceCorrect";
+		    return "attendanceCorrect";
 		  }
 		  /**
 		   * ユーザー更新
@@ -65,7 +65,7 @@ public class AttendanceCorrectController {
 		        errorList.add(error.getDefaultMessage());
 		      }
 		      model.addAttribute("validationError", errorList);
-		      return "templates/attendanceCorrect";
+		      return "attendanceCorrect";
 		    }
 		    // ユーザー情報の更新)
 		    attendanceService.update(attendanceUpdateRequest);
