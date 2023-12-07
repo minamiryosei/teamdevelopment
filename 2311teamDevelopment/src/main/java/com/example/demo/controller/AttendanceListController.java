@@ -36,4 +36,4 @@ import com.example.demo.service.AttendanceListService;
 	    model.addAttribute("attendancelist",attendancelist);
 	    return "attendanceList";
 		}
-}
+	}
