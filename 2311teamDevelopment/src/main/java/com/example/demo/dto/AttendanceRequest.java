@@ -30,7 +30,7 @@ public class AttendanceRequest implements Serializable{
   private String Status;
  
 // 出勤日
-  @Pattern(regexp = "^[0-9]{4}/(0[1-9]|1[0-2])/(0[1-9]|[12][0-9]|3[01])$", message = "日付を入力してください")
+  @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "日付を入力してください")
   private LocalDate startDate;
   
   /**
