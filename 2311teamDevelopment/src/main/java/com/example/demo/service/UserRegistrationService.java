@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dto.UserRegistrationRequest;
 import com.example.demo.entity.UserRegistrationEntity;
 import com.example.demo.repository.UserRegistrationRepository;
 
@@ -21,17 +22,16 @@ public class UserRegistrationService {
   return userRegistrationRepository.findAll();
  }
 
- public UserRegistrationEntity findById(Long id) {
-	 return userRegistrationRepository.findById(id).get();
+public void create(UserRegistrationRequest userRegistrationRequest) {
+	UserRegistrationEntity userRegistrationEntity = new UserRegistrationEntity();
+	userRegistrationEntity.setName(userRegistrationRequest.getName());
+	userRegistrationEntity.setKana(userRegistrationRequest.getKana());
+	userRegistrationEntity.setEmail(userRegistrationRequest.getEmail());
+	userRegistrationEntity.setPassword(userRegistrationRequest.getPassword());
+
  }
 
- //public void update(UserEditDeleteRequest userEditDeleteRequest)// {
-	 //UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getId());//
-	// userRegistrationEntity.setName(userEditDeleteRequest.getName());//
-
- }
 
 
 
-
-//}//
+}
