@@ -20,6 +20,7 @@ public class AttendanceCorrectRequest implements Serializable {
 	  @NotEmpty(message = "名前を入力してください")
 	  @Size(max = 1, message = "")
 	 private Long user_id;
+<<<<<<< Updated upstream
 	  /**
 	   * 住所
 	   */
@@ -37,4 +38,15 @@ public class AttendanceCorrectRequest implements Serializable {
 	  private Time break_time1;
 	  private Time break_time2;
 	  private String comments;
+=======
+	 private String status;
+	 private Date start_date;
+	 private Time start_time;
+	 private Date leaving_date;
+	 private Time leaving_time;
+	 private Time working_time;
+	 private Time break_time1;
+	 private Time break_time2;
+	 private String comments;
+>>>>>>> Stashed changes
 }
