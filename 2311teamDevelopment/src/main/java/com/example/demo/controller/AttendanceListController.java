@@ -6,13 +6,17 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.entity.AttendanceListEntity;
 import com.example.demo.service.AttendanceListService;
 
 	/**
+<<<<<<< Updated upstream
+	 * 勤怠一覧 Controller
+=======
 	 * 勤怠情報 Controller
+>>>>>>> Stashed changes
 	 */
 	@Controller
 	public class AttendanceListController {
@@ -26,10 +30,10 @@ import com.example.demo.service.AttendanceListService;
 	   * @param  model Model
 	   * @return  勤怠情報一覧画面のHTML
 	   */
-	  @RequestMapping(value = "/templates/attendanceList")
+		@GetMapping(value = "/templates/attendanceList")
 		public String displayList(Model model) {
-	    List<AttendanceListEntity> list = attendanceService.searchAll();
-	    model.addAttribute("templatesattendanceList",list);
-	    return "templates/attendanceList";
-	  }
+	    List<AttendanceListEntity> attendancelist = attendanceService.searchAll();
+	    model.addAttribute("attendancelist",attendancelist);
+	    return "attendanceList";
+		}
 	}
