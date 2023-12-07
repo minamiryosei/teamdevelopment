@@ -17,6 +17,7 @@ public class costApplicationService {
 @Autowired
 private costApplicationRepository costapplicationRepository;
 
+
 public List<costApplicationEntity> searchAll() {
 	return costapplicationRepository.findAll();
 }
