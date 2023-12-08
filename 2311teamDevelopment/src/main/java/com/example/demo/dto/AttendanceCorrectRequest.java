@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -16,7 +15,6 @@ public class AttendanceCorrectRequest implements Serializable {
 	/**
 	 * ユーザーID
 	 */ 
-	@NotEmpty(message = "ユーザーIDを入力してください。")
 	private Long user_id;
 	/**
 	 * ステータス

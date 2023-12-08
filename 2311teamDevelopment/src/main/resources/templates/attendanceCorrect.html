@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>勤怠修正</title>
-    <link href="@{/css/attendanceCorrect.css}" rel="stylesheet">
+    <link href="/css/attendanceCorrect.css" rel="stylesheet">
 </head>
 <body>
     <div class="Form">
@@ -15,12 +15,12 @@
       <form th:action="@{update}" th:object="${userUpdateRequest}" method="post">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
-          <input type="text" class="Form-Item-Input" placeholder="" disabled>
+          <input type="text" class="Form-Item-Input" disabled>
         </div>
         <div class="Form-Item">
 		　<span class="text-danger">※</span>
           <p class="Form-Item-Label">UserId</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）0000">
+          <input type="text" class="Form-Item-Input">
         </div>
         <div class="Form-Item">
           <p class="Form-Item-Label">ステータス</p>
@@ -70,7 +70,7 @@
           <textarea class="Form-Item-Textarea"></textarea>
         </div>
         <button type="submit" class="Form-Btn1">登録</button>
-        <button type="button" class="Form-Btn2"><a th:href="@{/attendanceList}">戻る</a></button>
+        <button type="button" class="Form-Btn2"><a th:href="/templates/attendanceList">戻る</a></button>
       </form>
     </div>
 </body>
