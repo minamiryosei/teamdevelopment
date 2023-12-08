@@ -12,12 +12,13 @@
         <label class="text-danger" th:text="${error}"></label>
       </div>
       <h1>勤怠修正</h1>
-      <form th:action="@{update}" th:object="${userRequest}" method="post">
+      <form th:action="@{update}" th:object="${userUpdateRequest}" method="post">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
           <input type="text" class="Form-Item-Input" placeholder="" disabled>
         </div>
         <div class="Form-Item">
+		　<span class="text-danger">※</span>
           <p class="Form-Item-Label">UserId</p>
           <input type="text" class="Form-Item-Input" placeholder="例）0000">
         </div>
@@ -64,11 +65,12 @@
           <input type="text" class="Form-Item-Input" placeholder="例）入力ミスのため">
         </div>
         <div class="Form-Item">
+			<span class="text-danger">※</span>
           <p class="Form-Item-Label isMsg">備考</p>
           <textarea class="Form-Item-Textarea"></textarea>
         </div>
         <button type="submit" class="Form-Btn1">登録</button>
-        <button type="button" class="Form-Btn2"><a th:href="@{/mypage}">戻る</a></button>
+        <button type="button" class="Form-Btn2"><a th:href="@{/attendanceList}">戻る</a></button>
       </form>
     </div>
 </body>

@@ -14,8 +14,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper=false)
 public class AttendanceCorrectUpdateRequest extends AttendanceCorrectRequest implements Serializable  {
 	/**
-	   * ユーザーID
-	   */
+	 * 勤怠ID
+	 */
 	  @NotNull
 	  private Long attendance_id;
 }
