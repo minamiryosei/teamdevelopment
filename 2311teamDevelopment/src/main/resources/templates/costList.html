@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/costList.css">
+    <link rel="stylesheet" href="../css/costList.css">
     <title>Document</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
         </tbody>
       </table>
       <div>
-      <button type="submit" class="button1">戻る</button>
+      <button type="button" class="bottun1"><a th:href="@{/myPage}">戻る</a></button>
     </div>
   </body>
-  </html>
+</html>
