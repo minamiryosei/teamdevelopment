@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.costApplicationRequest;
-import com.example.demo.entity.costApplicationEntity;
 import com.example.demo.service.costApplicationService;
 
 @Controller
@@ -22,18 +21,6 @@ public class costApplicationController {
 
 	@Autowired
 	private costApplicationService costapplicationService;
-
-	/**
-	 * マイページを表示
-	 * @param model Model
-	 * @return マイページ
-	 */
-	@GetMapping(value = "/myPage")
-	public String displayList(Model model) {
-		List<costApplicationEntity> mypage = costapplicationService.searchAll();
-		model.addAttribute("mypage", mypage);
-		return "/myPage";
-	}
 
 	/**
 	 * 経費申請を表示
@@ -69,6 +56,6 @@ public class costApplicationController {
 
 		// 経費の申請
 		costapplicationService.create(costapplicationRequest);
-		return "redirect:/costApplication";
+		return "redirect:/myPage";
 	}
 }
