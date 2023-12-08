@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -15,38 +13,44 @@ import lombok.Data;
 @Data
 public class AttendanceCorrectRequest implements Serializable {
 	/**
-	   * 名前
-	   */
-	  @NotEmpty(message = "名前を入力してください")
-	  @Size(max = 1, message = "")
-	 private Long user_id;
-<<<<<<< Updated upstream
-	  /**
-	   * 住所
-	   */
-	  @Size(max = 255, message = "")
-	  private String status;
-	  /**
-	   * 電話番号
-	   */
-	  @Pattern(regexp = "0\\d{1,4}-\\d{1,4}-\\d{4}", message = "")
-	  private Date start_date;
-	  private Time start_time;
-	  private Date leaving_date;
-	  private Time leaving_time;
-	  private Time working_time;
-	  private Time break_time1;
-	  private Time break_time2;
-	  private String comments;
-=======
-	 private String status;
-	 private Date start_date;
-	 private Time start_time;
-	 private Date leaving_date;
-	 private Time leaving_time;
-	 private Time working_time;
-	 private Time break_time1;
-	 private Time break_time2;
-	 private String comments;
->>>>>>> Stashed changes
+	 * ユーザーID
+	 */ 
+	private Long user_id;
+	/**
+	 * ステータス
+	 */ 
+	private String status;
+	/**
+	 * 出勤日
+	 */ 
+	private Date start_date;
+	/**
+	 * 出勤時間
+	 */
+	private Time start_time;
+	/**
+	 * 退勤日
+	 */
+	private Date leaving_date;
+	/**
+	 * 退勤時間
+	 */ 
+	private Time leaving_time;
+	/**
+	 * 稼働時間
+	 */ 
+	private Time working_time;
+	/**
+	 * 休憩時間１
+	 */ 
+	private Time break_time1;
+	/**
+	 * 休憩時間２
+	 */ 
+	private Time break_time2;
+	/**
+	 *　備考
+	 */ 
+	@Size(max = 100, message = "備考は100文字以内で入力してください")
+	private String comments;
 }
