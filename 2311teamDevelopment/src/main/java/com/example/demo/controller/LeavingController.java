@@ -13,31 +13,28 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.dto.AttendanceRequest;
-import com.example.demo.service.AttendanceService;
+import com.example.demo.dto.LeavingRequest;
+import com.example.demo.service.LeavingService;
 
-/**
- * ユーザー情報 Controller
- */
+
+
 @Controller
-@Validated
-public class AttendanceController {
+public class LeavingController {
 	/**
 	   * ユーザー情報 Service
 	   */
 	@Autowired
-	private AttendanceService attendanceService;
-
-		
-		 @GetMapping(value = "templates/attendance{@attendance_id}")
-		  public String displayAdd(Model model) {
-		    model.addAttribute("attendanceRequest", new AttendanceRequest());
-		    return "attendance";
-		  }
+private LeavingService leavingService;
+	
+	 @GetMapping(value = "templates/attendance{@attendance_id}")
+	  public String displayAdd(Model model) {
+	    model.addAttribute("leavingRequest", new LeavingRequest());
+	    return "leaving";
+	  }
 			
-		//出勤登録
-	@PostMapping("/attendance")
-	public String create(@Validated @ModelAttribute AttendanceRequest attendanceRequest, BindingResult result,
+		//退勤登録
+	@PostMapping("/leaving")
+	public String create(@Validated @ModelAttribute LeavingRequest leavingRequest, BindingResult result,
 			Model model) {
 		//入力判定
 		if (result.hasErrors()) {
@@ -48,17 +45,16 @@ public class AttendanceController {
 			}
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
-			model.addAttribute("attendanceReque",attendanceRequest);
-			return "attendance";
+			model.addAttribute("leavingRequest", leavingRequest);
+			return "leaving";
 		}
-		// 出勤情報の登録
-		attendanceService.create(attendanceRequest);
-		return "redirect:templates/attendance";
+		// 退勤情報の登録
+	leavingService.create(leavingRequest);
+		return "redirect:/css/leaving";
 	}	
 	    
 
 
 
-	  }
 
-
+}

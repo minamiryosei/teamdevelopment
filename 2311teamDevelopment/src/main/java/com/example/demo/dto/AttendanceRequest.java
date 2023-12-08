@@ -31,7 +31,7 @@ public class AttendanceRequest implements Serializable{
  
 // 出勤日
   @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "日付を入力してください")
-  private LocalDate startDate;
+  private LocalDate StartDate;
   
   /**
    * 出勤時間
@@ -39,6 +39,9 @@ public class AttendanceRequest implements Serializable{
   @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "出勤時間を入力してください")
   private LocalTime StartTime;
 
-
+  /**
+   * 勤怠ID
+   */
+  private Integer attendance_id;
 }
   
