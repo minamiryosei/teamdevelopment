@@ -1,9 +1,43 @@
-<!DOCTYPE HTML>
-<html>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>勤怠一覧</title>
+    <link href="/css/attendanceList.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-    <input type="text" value="Hello" />
+    <h1>勤怠一覧</h1>
+    <table class="table">
+        <tr>
+         <th>勤怠ID</th>
+         <th>UserID</th>
+         <th>ステータス</th>
+         <th>出勤日</th>
+         <th>出勤時間</th>
+         <th>退勤日</th>
+         <th>退勤時間</th>
+         <th>稼働時間</th>
+         <th>休憩時間</th>
+         <th>備考</th>
+         <th></th>
+        </tr>
+        <tr th:each=" attendance_table : ${attendancelist}" th:object="${attendance_table}">
+         <td th:text="*{attendance_id}"></td>
+         <td th:text="*{user_id}"></td>
+         <td th:text="*{status}"></td>
+         <td th:text="*{start_date}"></td>
+         <td th:text="*{start_time}"></td>
+         <td th:text="*{leaving_date}"></td>
+         <td th:text="*{leaving_time}"></td>
+         <td th:text="*{working_time}"></td>
+         <td th:text="*{break_time1}"></td>
+         <td th:text="*{break_time2}"></td>
+         <td th:text="*{comments}"></td>
+         <td><button type="button" class="Form-Btn1"><a th:href="@{/templates/{attendance_id}/edit(attendance_id=*{attendance_id})}">編集</a></button></td>
+        </tr>
+    </table>
+    <button type="button" class="Form-Btn2"><a th:href="@{/mypage}">戻る</a></button>
 </body>
 </html>
