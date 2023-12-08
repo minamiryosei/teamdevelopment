@@ -25,7 +25,7 @@ public class AttendanceEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "attendance_id")
-	private Integer UttendanceId;
+	private Integer AttendanceId;
 	//2行追加
 	
 	/**

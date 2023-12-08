@@ -38,5 +38,7 @@ public class AttendanceRequest implements Serializable{
    */
   @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "出勤時間を入力してください")
   private LocalTime StartTime;
-  
+
+
 }
+  
