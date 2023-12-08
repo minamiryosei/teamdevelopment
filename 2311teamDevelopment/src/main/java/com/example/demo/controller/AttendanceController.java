@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.AttendanceRequest;
 import com.example.demo.service.AttendanceService;
@@ -29,16 +30,16 @@ public class AttendanceController {
 
 		public String displayList(Model model) {
 			model.addAttribute("attendanceRequest", new AttendanceRequest());
-			return "templates/attendance";
+			return "attendance";
 	  }
-		 @GetMapping(value = "/user/add")
+		 @GetMapping(value = "templates/attendance")
 		  public String displayAdd(Model model) {
 		    model.addAttribute("userRequest", new AttendanceRequest());
-		    return "templates/attendance";
+		    return "attendance";
 		  }
 			
 		//出勤登録
-	@GetMapping("/user/create")
+	@PostMapping("/user/create")
 	public String create(@Validated @ModelAttribute AttendanceRequest attendanceRequest, BindingResult result,
 			Model model) {
 		//入力判定
@@ -51,11 +52,11 @@ public class AttendanceController {
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
 			model.addAttribute("attendanceRequest", attendanceRequest);
-			return "templates/attendance";
+			return "attendance";
 		}
 		// 出勤情報の登録
 		attendanceService.create(attendanceRequest);
-		return "redirect:/templates/attendance";
+		return "redirect:attendance";
 	}	
 	    
 
