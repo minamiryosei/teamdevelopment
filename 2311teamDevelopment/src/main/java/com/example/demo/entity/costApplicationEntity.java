@@ -1,7 +1,5 @@
 package com.example.demo.entity;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,17 +20,17 @@ public class costApplicationEntity {
 	  @Id
 	  @Column(name = "cost_id")
 	  @GeneratedValue(strategy = GenerationType.IDENTITY)
-	  private String cost_id;
+	  private Integer cost_id;
 	  /**
 	   * ユーザーID
 	   */
 	  @Column(name = "user_id")
-	  private String user_id;
+	  private Integer user_id;
 	  /**
 	   * 申請日
 	   */
 	  @Column(name = "application_day")
-	  private Date application_day;
+	  private String application_day;
 	  /**
 	   * 項目
 	   */
@@ -42,7 +40,7 @@ public class costApplicationEntity {
 	   * コスト
 	   */
 	  @Column(name = "cost")
-	  private String cost;
+	  private Integer cost;
 	  /**
 	   * 備考
 	   */
