@@ -1,14 +1,13 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
-
 
 @Data
 public class costApplicationRequest implements Serializable {
@@ -17,13 +16,14 @@ public class costApplicationRequest implements Serializable {
 	  /**
 	   * User_id
 	   */
-	 @NotEmpty(message = "UserIDを入力してください")
-	  private String user_id;
+	 @NotNull(message = "UserIDを入力してください")
+	  private Integer user_id;
 	  /**
 	   * 申請日
 	   */
-	  @NotNull(message = "申請日を選択してください")
-	  private Date application_day;
+	 @NotEmpty(message = "申請日を選択してください")
+	  private String application_day;
+	  SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 	  /**
 	   * 項目
 	   */
@@ -32,8 +32,8 @@ public class costApplicationRequest implements Serializable {
 	  /**
 	   * 金額
 	   */
-	  @NotEmpty(message = "金額を入力してください")
-	  private String cost;
+	  @NotNull(message = "金額を入力してください")
+	  private Integer cost;
 	  /**
 	   * 備考
 	   */
