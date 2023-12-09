@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +25,17 @@ public List<costApplicationEntity> searchAll() {
 	return costapplicationRepository.findAll();
 }
 
+
 public void create(costApplicationRequest costapplicationRequest) {
+	 try {
+	      String str = "2020/01/01 12:00:00";
+	      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	      Date date = format.parse(str);
+	    } 
+	 catch (ParseException e) {
+	      e.printStackTrace();
+	    }
+	 
 	costApplicationEntity costapplication = new costApplicationEntity();
 	costapplication.setUser_id(costapplicationRequest.getUser_id());
 	costapplication.setApplication_day(costapplicationRequest.getApplication_day());
@@ -30,6 +43,6 @@ public void create(costApplicationRequest costapplicationRequest) {
 	costapplication.setCost(costapplicationRequest.getCost());
 	costapplication.setComments(costapplicationRequest.getComments());
 	costapplicationRepository.save(costapplication);
- 
+	
+    } 
   }
-}
