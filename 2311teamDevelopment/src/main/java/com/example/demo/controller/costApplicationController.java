@@ -56,6 +56,6 @@ public class costApplicationController {
 
 		// 経費の申請
 		costapplicationService.create(costapplicationRequest);
-		return "redirect:/myPage";
+		return "myPage";
 	}
 }
