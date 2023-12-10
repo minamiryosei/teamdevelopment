@@ -16,23 +16,11 @@ public class costListController {
 @Autowired
 private costListService costlistService;
 
-/**
- * マイページを表示
- * @param model Model
- * @return マイページ
- */
-@GetMapping(value = "/myPage")
-public String displayList(Model model) {
-	List<costListEntity> mypage = costlistService.searchAll();
-	model.addAttribute("mypage", mypage);
-	return "/myPage";
-}
-
 
 @GetMapping("/list")
 	public String displayAdd(Model model) {
-    List<costListEntity> userlist = costlistService.searchAll();
-	    model.addAttribute("userlist", userlist);
+    List<costListEntity> list = costlistService.searchAll();
+	    model.addAttribute("list", list);
 	    return "costList";
   }
 }
