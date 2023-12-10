@@ -33,7 +33,7 @@ public class AttendanceCorrectController {
 		   * @param  model Model
 		   * @return  ユーザー編集画面
 		   */
-		  @GetMapping("/templates/{id}/edit")
+		  @GetMapping("/templates/{attendance_id}/edit")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
 			AttendanceListEntity attendance = attendanceService.findById(attendance_id);
 			AttendanceCorrectUpdateRequest attendanceUpdateRequest = new AttendanceCorrectUpdateRequest();
