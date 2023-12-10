@@ -11,11 +11,11 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name="user")
+@Table(name="user_table")
 public class UserRegistrationEntity {
 
 @Id
-@Column(name="id")
+@Column(name="user_id")
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 

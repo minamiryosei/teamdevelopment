@@ -11,7 +11,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -24,20 +23,20 @@ public class UserRegistrationController {
  @Autowired
  private UserRegistrationService userRegistrationService;
 
-@GetMapping(value="/user/list")
+@GetMapping(value="/templates/UserRegistration")
 public String displayList(Model model) {
 	List<UserRegistrationEntity> userlist = userRegistrationService.searchAll();
 	model.addAttribute("userlist", userlist);
-	return "user/list";
+	return "templates/UserRegistration";
 }
 
-@GetMapping(value="/user/add")
+@GetMapping(value="/templates/UserRegistration")
 public String displayAdd(Model model) {
 	model.addAttribute("userRegistrationRequest", new UserRegistrationRequest());
-	return "user/add";
+	return "templates/UserRegistration";
 }
 
-@RequestMapping(value="/user/create", method= RequestMethod.POST)
+@RequestMapping(value="/templates/create", method=RequestMethod.POST)
 public String create(@Validated @ModelAttribute UserRegistrationRequest userRegistrationRequest, BindingResult result,  Model model) {
 
 	if(result.hasErrors()) {
@@ -46,13 +45,10 @@ public String create(@Validated @ModelAttribute UserRegistrationRequest userRegi
 			errorList.add(error.getDefaultMessage());
 		}
 		model.addAttribute("validationError", errorList);
-		return "user/add";
+		return "templates/UserRegistration";
 	}
 	userRegistrationService.create(userRegistrationRequest);
-	return "redirect:/user/list";
+	return "redirect:/templates/UserRegistration";
 }
-@GetMapping("/user/{id}")
-public String displayView(@PathVariable Long id, Model model) {
-	return "user/view";
-}
+
 }

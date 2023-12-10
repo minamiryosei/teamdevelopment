@@ -11,8 +11,12 @@ xmlns:th="http://www.thymeleaf.org">
 
 <body>
     <h1>ユーザ登録</h1>
-    <form action="http://localhost:8080/user/list" method="post">
+    <form th:action="@{/templates/create}" th:object="${userRegistrationRequest}"
+    method="post">
         <div class="Form">
+			<div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" th:text="${error}"></label>
+			</div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic">自動</span>userID</p>
                 <input type="text" class="Form-Item-Input" placeholder="自動で採番されます">
