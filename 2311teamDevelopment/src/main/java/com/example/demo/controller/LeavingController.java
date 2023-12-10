@@ -50,7 +50,7 @@ private LeavingService leavingService;
 		}
 		// 退勤情報の登録
 	leavingService.create(leavingRequest);
-		return "redirect:/css/leaving";
+		return "redirect:/templates/leaving";
 	}	
 	    
 

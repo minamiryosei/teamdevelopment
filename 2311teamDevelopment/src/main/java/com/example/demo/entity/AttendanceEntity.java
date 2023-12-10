@@ -25,32 +25,32 @@ public class AttendanceEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "attendance_id")
-	private Integer AttendanceId;
+	private Integer attendanceId;
 	//2行追加
 	
 	/**
 	 * UserID
 	 */
 	@Column(name = "user_id")
-	private String UserId;
+	private Integer userId;
 
 	/**
 	 * ステータス
 	 */
 	@Column(name = "status")
-	private String Status;
+	private String status;
 
 	/**
 	 * 出勤日
 	 */
 	@Column(name = "start_date")
-	private LocalDate StarteDate;
+	private LocalDate startDate;
 
 	/**
 	 * 出勤時間
 	 */
 	@Column(name = "start_time")
-	private LocalTime StartTime;
+	private LocalTime startTime;
 
 }
 	

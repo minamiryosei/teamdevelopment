@@ -20,7 +20,6 @@ import com.example.demo.service.AttendanceService;
  * ユーザー情報 Controller
  */
 @Controller
-@Validated
 public class AttendanceController {
 	/**
 	   * ユーザー情報 Service
@@ -29,14 +28,14 @@ public class AttendanceController {
 	private AttendanceService attendanceService;
 
 		
-		 @GetMapping(value = "templates/attendance{@attendance_id}")
+		 @GetMapping(value = "/attendance")
 		  public String displayAdd(Model model) {
 		    model.addAttribute("attendanceRequest", new AttendanceRequest());
 		    return "attendance";
 		  }
 			
 		//出勤登録
-	@PostMapping("/attendance")
+	@PostMapping("/attendance/add")
 	public String create(@Validated @ModelAttribute AttendanceRequest attendanceRequest, BindingResult result,
 			Model model) {
 		//入力判定
@@ -48,12 +47,11 @@ public class AttendanceController {
 			}
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
-			model.addAttribute("attendanceReque",attendanceRequest);
 			return "attendance";
 		}
 		// 出勤情報の登録
 		attendanceService.create(attendanceRequest);
-		return "redirect:templates/attendance";
+		return "attendance";
 	}	
 	    
 
