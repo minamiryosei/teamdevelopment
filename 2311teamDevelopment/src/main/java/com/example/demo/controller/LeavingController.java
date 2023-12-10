@@ -26,7 +26,7 @@ public class LeavingController {
 	@Autowired
 private LeavingService leavingService;
 	
-	 @GetMapping(value = "templates/attendance{@attendance_id}")
+	 @GetMapping(value = "templates/leaving{@attendance_id}")
 	  public String displayAdd(Model model) {
 	    model.addAttribute("leavingRequest", new LeavingRequest());
 	    return "leaving";

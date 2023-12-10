@@ -5,8 +5,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -30,14 +32,16 @@ public class AttendanceRequest implements Serializable{
   private String Status;
  
 // 出勤日
-  @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "日付を入力してください")
-  private LocalDate StartDate;
+  @NotNull(message = "日付は必須です")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+  private LocalDate startDate;
   
   /**
    * 出勤時間
    */
-  @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "出勤時間を入力してください")
-  private LocalTime StartTime;
+  @NotNull( message = "出勤時間を入力してください")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+  private LocalTime startTime;
 
   /**
    * 勤怠ID

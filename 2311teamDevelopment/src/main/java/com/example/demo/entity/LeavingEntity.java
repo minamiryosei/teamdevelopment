@@ -16,7 +16,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "attendance" , schema = "public" )
+@Table(name = "attendance_table" , schema = "public" )
 public class LeavingEntity {
 	/**
 	 * 勤怠ID
