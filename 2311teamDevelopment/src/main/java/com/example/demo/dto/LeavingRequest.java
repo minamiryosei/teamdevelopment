@@ -5,8 +5,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Data;
 
@@ -30,25 +32,29 @@ public class LeavingRequest implements Serializable{
   private String Status;
  
 // 退勤日
-  @Pattern(regexp = "\\d{4}-\\d{2}-\\d{2}", message = "日付を入力してください")
+  @NotNull(message = "日付は必須です")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
   private LocalDate LeavingDate;
   
   /**
    * 退勤時間
    */
-  @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "退勤時間を入力してください")
+  @NotNull( message = "退勤時間を入力してください")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
   private LocalTime LeavingTime;
   
   /**
    * 退勤時間1
    */
-  @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "休憩開始時間を入力してください")
-  private LocalTime BreakTime;
+  @NotNull( message = "休憩開始時間を入力してください")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+  private LocalTime  BreakTime;
   /**
    * 退勤時間2
    */
-  @Pattern(regexp = "^([01][0-9]|2[0-3]):[0-5][0-9]$", message = "休憩終了時間を入力してください")
-  private LocalTime BreakTimes;
+  @NotNull( message = "休憩終了時間を入力してください")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+  private LocalTime  BreakTimes;
   /**
    * 勤怠ID
    */

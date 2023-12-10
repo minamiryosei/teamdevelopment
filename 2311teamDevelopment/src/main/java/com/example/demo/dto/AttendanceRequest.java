@@ -34,14 +34,14 @@ public class AttendanceRequest implements Serializable{
 // 出勤日
   @NotNull(message = "日付は必須です")
   @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  private LocalDate startDate;
+  private LocalDate StartDate;
   
   /**
    * 出勤時間
    */
   @NotNull( message = "出勤時間を入力してください")
   @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
-  private LocalTime startTime;
+  private LocalTime StartTime;
 
   /**
    * 勤怠ID
