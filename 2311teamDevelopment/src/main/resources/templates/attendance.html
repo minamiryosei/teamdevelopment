@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- css を読み込む -->
-  <link th:href="@{/css/attendance.css}" rel="styleSheet">
-<!--  <form id="form" method="POST" th:object="${attendanceRequest}" th:action="@{/attendance}">-->
-    <title>出勤報告</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css を読み込む -->
+	<link th:href="@{/css/attendance.css}" rel="styleSheet">
+	<!--  <form id="form" method="POST" th:object="${attendanceRequest}" th:action="@{/attendance}">-->
+	<title>出勤報告</title>
 </head>
-<body>  
-    <div class="Form">
-        <h1>出勤報告</h1>
-        <form th:action="@{/attendance/add}" th:object="${attendanceRequest}" method="post">
-        <div class="Form-Item">
-          <p class="Form-Item-Label">
-            <span class="Form-Item-Label-Required">必須</span>UserId
-          </p>
-          <input type="text" th:field="*{userId}" class="Form-Item-Input" placeholder="例）100056">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
-          <select name="name" th:field="*{status}" class="Form-Item-Input">
-            <option value="出勤">出勤</option>
-            <option value="遅刻">遅刻</option>
-            <option value="欠席">欠席</option>
-            <option value="代休">代休</option>
-            <option value="所定休">所定休</option>
-            <option value="有休">有休</option>
-            <option value="その他">その他</option>
-          </select>
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
-          <input type="date" th:field="*{startDate}" Status id="date" class="Form-Item-Input">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
-          <input type="time" th:field="*{startTime}" id="time" class="Form-Item-Input">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label isMsg">備考</p>
-          <textarea class="Form-Item-Textarea" th:field="*{remarks}"></textarea>
-        </div>
-        <button type="submit" class="button1" >登録</button>
-        <button type="button" class="button2" >戻る</button>
-      </div>  
-    </form>
+
+<body>
+	<div class="Form">
+		<h1>出勤報告</h1>
+		<form th:action="@{/attendance/add}" th:object="${attendanceRequest}" method="post">
+			<div class="Form-Item">
+				<p class="Form-Item-Label">
+					<span class="Form-Item-Label-Required">必須</span>UserId
+				</p>
+				<input type="text" th:field="*{userId}" class="Form-Item-Input" placeholder="例）100056">
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
+				<select name="name" th:field="*{status}" class="Form-Item-Input">
+					<option value="出勤">出勤</option>
+					<option value="遅刻">遅刻</option>
+					<option value="欠席">欠席</option>
+					<option value="代休">代休</option>
+					<option value="所定休">所定休</option>
+					<option value="有休">有休</option>
+					<option value="その他">その他</option>
+				</select>
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
+				<input type="date" th:field="*{startDate}" Status id="date" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
+				<input type="time" th:field="*{startTime}" id="time" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label isMsg">備考</p>
+				<textarea class="Form-Item-Textarea" th:field="*{remarks}"></textarea>
+			</div>
+			<div th:if="${#fields.hasErrors('attendanceRequest')}">
+				<div th:each="error : ${#fields.errors('attendanceRequest')}" class="validation">
+					<p th:text="${error.defaultMessage}"></p>
+				</div>
+				<button type="submit" class="button1">登録</button>
+				<button type="button" class="button2">戻る</button>
+			</div>
+		</form>
 </body>
+
 </html>
