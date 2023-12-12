@@ -74,6 +74,11 @@ public class AttendanceListEntity  {
 	@Column(name = "break_time2")
 	private Time break_time2;
 	/**
+	 * 修正理由
+	 */
+	@Column(name = "edit_reason")
+	private String edit_reason;
+	/**
 	 * 備考
 	 */
 	@Column(name = "comments")

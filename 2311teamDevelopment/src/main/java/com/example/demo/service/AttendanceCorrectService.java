@@ -38,7 +38,9 @@ public class AttendanceCorrectService {
 		attendance.setLeaving_date(attendanceUpdateRequest.getLeaving_date());
 		attendance.setLeaving_time(attendanceUpdateRequest.getLeaving_time());
 		attendance.setWorking_time(attendanceUpdateRequest.getWorking_time());
-		attendance.setWorking_time(attendanceUpdateRequest.getWorking_time());
+		attendance.setBreak_time1(attendanceUpdateRequest.getBreak_time1());
+		attendance.setBreak_time2(attendanceUpdateRequest.getBreak_time2());
+		attendance.setEdit_reason(attendanceUpdateRequest.getEdit_reason());
 		attendance.setComments(attendanceUpdateRequest.getComments());
 		attendanceRepository.save(attendance);
 	}
