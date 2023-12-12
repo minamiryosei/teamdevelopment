@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dto.AttendanceCorrectUpdateRequest;
 import com.example.demo.entity.AttendanceListEntity;
@@ -33,7 +34,7 @@ public class AttendanceCorrectController {
 		   * @param  model Model
 		   * @return  勤怠修正画面
 		   */
-		  @GetMapping("/templates/{id}/attendanceCorrect")
+		  @GetMapping("/{attendance_id}/edit")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
 			AttendanceListEntity attendance = attendanceService.findById(attendance_id);
 			AttendanceCorrectUpdateRequest attendanceUpdateRequest = new AttendanceCorrectUpdateRequest();
@@ -57,7 +58,7 @@ public class AttendanceCorrectController {
 		   * @param  model Model
 		   * @return  勤怠情報修正画面
 		   */
-		  @RequestMapping("/templates/attendanceCorrect")
+		  @RequestMapping(value = "/update", method = RequestMethod.POST)
 		  public String update(@Validated  @ModelAttribute  AttendanceCorrectUpdateRequest attendanceUpdateRequest, BindingResult result, Model model) {
 		    if (result.hasErrors()) {
 		      List<String> errorList = new ArrayList<String>();
