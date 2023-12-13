@@ -162,3 +162,6 @@
     display: block;
     clear: both;
   }
+  a {
+	color: white;
+  }
