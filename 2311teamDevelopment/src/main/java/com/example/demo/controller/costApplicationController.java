@@ -20,8 +20,8 @@ import com.example.demo.service.costApplicationService;
 public class costApplicationController {
 
 	@Autowired
-	private costApplicationService costapplicationService;
-
+	private costApplicationService costApplicationService;
+	 
 	/**
 	 * 経費申請を表示
 	 * @param model Model
@@ -29,7 +29,7 @@ public class costApplicationController {
 	 */
 	@GetMapping("/costapplication")
 	public String displayAdd(Model model) {
-		model.addAttribute("costapplicationRequest", new costApplicationRequest());
+		model.addAttribute("costApplicationRequest", new costApplicationRequest());
 		return "costApplication";
 	}
 
@@ -43,9 +43,7 @@ public class costApplicationController {
 	public String create(@Validated @ModelAttribute costApplicationRequest costapplicationRequest, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
-
 			//入力チェックエラーの場合
-
 			List<String> errorList = new ArrayList<String>();
 			for (ObjectError error : result.getAllErrors()) {
 				errorList.add(error.getDefaultMessage());
@@ -55,7 +53,7 @@ public class costApplicationController {
 		}
 
 		// 経費の申請
-		costapplicationService.create(costapplicationRequest);
+		costApplicationService.create(costapplicationRequest);
 		return "myPage";
 	}
 }
