@@ -49,6 +49,10 @@ public class AttendanceCorrectRequest implements Serializable {
 	 */ 
 	private Time break_time2;
 	/**
+	 * 修正理由
+	 */
+	private String edit_reason;
+	/**
 	 *　備考
 	 */ 
 	@Size(max = 100, message = "備考は100文字以内で入力してください")

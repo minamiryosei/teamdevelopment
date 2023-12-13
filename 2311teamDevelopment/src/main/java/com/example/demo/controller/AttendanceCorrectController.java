@@ -47,6 +47,7 @@ public class AttendanceCorrectController {
 			attendanceUpdateRequest.setWorking_time(attendance.getWorking_time());
 			attendanceUpdateRequest.setBreak_time1(attendance.getBreak_time1());
 			attendanceUpdateRequest.setBreak_time2(attendance.getBreak_time2());
+			attendanceUpdateRequest.setEdit_reason(attendance.getEdit_reason());
 			attendanceUpdateRequest.setComments(attendance.getComments());
 		    model.addAttribute("attendanceUpdateRequest", attendanceUpdateRequest);
 		    return "attendanceCorrect";
