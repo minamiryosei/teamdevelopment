@@ -6,56 +6,61 @@
     <link rel="stylesheet" href="../css/costApplication.css">
     <title>Document</title>
 </head>
-<body>
-      <h1>経費申請</h1>
-       <form th:action="@{/costapplication/add}" th:object="${costapplicationRequest}" th:method="post">
+  <body>
+     <h1>経費申請</h1>
+      <form th:action="@{/costapplication/add}" th:object="${costApplicationRequest}" th:method="post">
 	     <div class="Form">
-		      <div th:if="${validationError}" th:each="error : ${validationError}">
-          <label class="text-danger" th:text="${error}"></label>
-       </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label">
-              <span class="Form-Item-Label-Required">必須</span>UserID</p>
-          <input type="text" class="Form-Item-Input" th:field="*{user_id}" placeholder="例）team2309">
-          <th:if="${#fields.hasErrors('user_id')}" class="text-danger">
-        <label th:errors="*{user_id}">
+		    <div th:if="${validationError}" th:each="error : ${validationError}"></div>
+		  <div class="Form-whole">
+          <div th:errors="*{user_id}" td style="color: red;"></div>
+          <div class="Form-Item">
+	          <p class="Form-Item-Label">
+            <span class="Form-Item-Label-Required">必須</span>UserID</p>
+            <input type="text" class="Form-Item-Input" th:field="*{user_id}" placeholder="例）team2309">
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{application_day}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label">
+		        <span class="Form-Item-Label-Required">必須</span>申請日</p>
+            <input type="date" class="Form-Item-Input"  th:field="*{application_day}">
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{category}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>項目</p>
+            <select name="status" class="Form-Item-Input" th:field="*{category}"> 
+              <option value="">ー選択して下さいー</option>
+              <option value="交通費">交通費</option>
+              <option value="家賃補助">家賃補助</option>
+              <option value="物品購入">物品購入</option>
+              <option value="宿泊費">宿泊費</option>
+              <option value="その他">その他</option>
+             </select>
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{cost}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>金額</p>
+            <input type="number" class="Form-Item-Input"  th:field="*{cost}" placeholder="例）24980">
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div class="Form-Item">
+             <p class="Form-Item-Label isMsg">備考</p>
+             <textarea class="Form-Item-Textarea"  th:field="*{comments}"></textarea>
+          </div>
+          </div>
+          <div>
+            <button type="submit" class="button1">登録</button>
+          </div>
+          <div>
+           <button type="button" class="button2"><a th:href="@{/mypage}">戻る</a></button>
         </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label">
-			  <span class="Form-Item-Label-Required">必須</span>申請日</p>
-          <input type="date" class="Form-Item-Input"  th:field="*{application_day}">
-          <th:if="${#fields.hasErrors('application_day')}" class="text-danger">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>項目</p>
-          <select name="status" class="Form-Item-Input" th:field="*{category}"> 
-		  <th:if="${#fields.hasErrors('category')}" class="text-danger">
-            <option value="">ー選択して下さいー</option>
-            <option value="交通費">交通費</option>
-            <option value="家賃補助">家賃補助</option>
-            <option value="物品購入">物品購入</option>
-            <option value="宿泊費">宿泊費</option>
-            <option value="その他">その他</option>
-          </select>
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>金額</p>
-          <input type="number" class="Form-Item-Input"  th:field="*{cost}" placeholder="例）24980">
-          <th:if="${#fields.hasErrors('cost')}" class="text-danger">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label isMsg">備考</p>
-          <textarea class="Form-Item-Textarea"  th:field="*{comments}"></textarea>
-        </div>
-        
-        <div>
-        <button type="submit" class="button1">登録</button>
-      </div>
-      <div>
-         <button type="button" class="button2"><a th:href="@{/mypage}">戻る</a>
-         </button>
       </div>
     </form>
-    </div>
   </body>
 </html>
