@@ -24,7 +24,7 @@ public class UserRegistrationController {
 
 
 @GetMapping("UserRegistration")
-public String displayList(Model model) {
+public String displayAdd(Model model) {
 	model.addAttribute("userRegistrationRequest", new UserRegistrationRequest());
 	return "UserRegistration";
 }

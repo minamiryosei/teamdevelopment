@@ -17,7 +17,7 @@ public class UserRegistrationEntity {
 @Id
 @Column(name="user_id")
 @GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+private Integer user_id;
 
 @Column(name="name")
 private String name;
