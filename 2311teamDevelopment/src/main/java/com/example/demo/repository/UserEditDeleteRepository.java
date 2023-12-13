@@ -4,6 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.UserEditDeleteEntity;
+import com.example.demo.entity.UserRegistrationEntity;
 
 @Repository
-public interface UserEditDeleteRepository extends JpaRepository<UserEditDeleteEntity, Long> {}
+public interface UserEditDeleteRepository extends JpaRepository<UserRegistrationEntity, Integer> {
+
+	void save(UserEditDeleteEntity userEditDelete);}
