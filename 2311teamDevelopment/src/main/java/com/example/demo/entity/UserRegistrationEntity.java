@@ -14,20 +14,20 @@ import lombok.Data;
 @Table(name="user_table")
 public class UserRegistrationEntity {
 
-@Id
-@Column(name="user_id")
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Integer user_id;
+	@Id
+	@Column(name="user_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer user_id;
 
-@Column(name="name")
-private String name;
+	@Column(name="name")
+	private String name;
 
-@Column(name="kana")
-private String kana;
+	@Column(name="kana")
+	private String kana;
 
-@Column(name="email")
-private String email;
+	@Column(name="email")
+	private String email;
 
-@Column(name="password")
-private String password;
+	@Column(name="password")
+	private String password;
 }

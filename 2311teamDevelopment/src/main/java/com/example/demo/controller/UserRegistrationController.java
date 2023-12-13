@@ -11,6 +11,7 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -19,29 +20,29 @@ import com.example.demo.service.UserRegistrationService;
 
 @Controller
 public class UserRegistrationController {
- @Autowired
- private UserRegistrationService userRegistrationService;
 
+	@Autowired
+	private UserRegistrationService userRegistrationService;
 
-@GetMapping("UserRegistration")
-public String displayAdd(Model model) {
-	model.addAttribute("userRegistrationRequest", new UserRegistrationRequest());
-	return "UserRegistration";
-}
-
-@RequestMapping(value="/UserRegistration/create", method=RequestMethod.POST)
-public String create(@Validated @ModelAttribute UserRegistrationRequest userRegistrationRequest, BindingResult result,  Model model) {
-
-	if(result.hasErrors()) {
-		List<String> errorList= new ArrayList<String>();
-		for(ObjectError error : result.getAllErrors()) {
-			errorList.add(error.getDefaultMessage());
-		}
-		model.addAttribute("validationError", errorList);
+	@GetMapping("UserRegistration")
+	public String displayAdd(Model model) {
+		model.addAttribute("userRegistrationRequest", new UserRegistrationRequest());
 		return "UserRegistration";
 	}
-	userRegistrationService.create(userRegistrationRequest);
-	return "myPage";
-}
+
+	@PostMapping("/UserRegistration/create")
+	public String create(@Validated @ModelAttribute UserRegistrationRequest userRegistrationRequest, BindingResult result,  Model model) {
+
+		if(result.hasErrors()) {
+			List<String> errorList= new ArrayList<String>();
+			for(ObjectError error : result.getAllErrors()) {
+				errorList.add(error.getDefaultMessage());
+			}
+			model.addAttribute("validationError", errorList);
+			return "UserRegistration";
+		}
+		userRegistrationService.create(userRegistrationRequest);
+		return "myPage";
+	}
 
 }

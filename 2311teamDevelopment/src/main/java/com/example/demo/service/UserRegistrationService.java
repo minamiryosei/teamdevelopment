@@ -15,26 +15,19 @@ import com.example.demo.repository.UserRegistrationRepository;
 @Transactional(dontRollbackOn=Exception.class)
 public class UserRegistrationService {
 
- @Autowired
- private UserRegistrationRepository userRegistrationRepository;
+	@Autowired
+	private UserRegistrationRepository userRegistrationRepository;
 
- public List<UserRegistrationEntity> searchAll() {
-	 return userRegistrationRepository.findAll();
- }
+	public List<UserRegistrationEntity> searchAll() {
+		return userRegistrationRepository.findAll();
+	}
 
-
-
-public void create(UserRegistrationRequest userRegistrationRequest) {
-	UserRegistrationEntity userRegistration = new UserRegistrationEntity();
-	userRegistration.setName(userRegistrationRequest.getName());
-	userRegistration.setKana(userRegistrationRequest.getKana());
-	userRegistration.setEmail(userRegistrationRequest.getEmail());
-	userRegistration.setPassword(userRegistrationRequest.getPassword());
-	userRegistrationRepository.save(userRegistration);
-
- }
-
-
-
-
+	public void create(UserRegistrationRequest userRegistrationRequest) {
+		UserRegistrationEntity userRegistration = new UserRegistrationEntity();
+		userRegistration.setName(userRegistrationRequest.getName());
+		userRegistration.setKana(userRegistrationRequest.getKana());
+		userRegistration.setEmail(userRegistrationRequest.getEmail());
+		userRegistration.setPassword(userRegistrationRequest.getPassword());
+		userRegistrationRepository.save(userRegistration);
+	}
 }
