@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -10,37 +11,40 @@
 
 <body>
     <h1>ユーザ編集・削除</h1>
-    <form action="送信先のURL" method="post">
+    <form th:action="@{/UserEditDelete/update}" th:object="${userEditDeleteRequest}"
+    method="post">
         <div class="Form">
+			<div th:if="${validationError}" th:each="error : ${validationError}">
+				<label class="text-danger" th:text="${error}"></label>
             <div class="Form-Item">
                 <p class="Form-Item-Label">
                     <span>userID</span>
                 </p>
-                <input type="text" class="Form-Item-Input" placeholder="" disabled>
+                <input type="text" class="Form-Item-Input" disabled>
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label">
                     <span>名前</span>
                 </p>
-                <input type="text" class="Form-Item-Input" placeholder="○○○○">
+                <input type="text" class="Form-Item-Input" th:field="*{name}" />
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label">
                     <span>カナ</span>
                 </p>
-                <input type="text" class="Form-Item-Input" placeholder="○○○○">
+                <input type="text" class="Form-Item-Input" th:field="*{kana}" />
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label">
                     <span>メールアドレス</span>
                 </p>
-                <input type="email" class="Form-Item-Input" placeholder="○○○○">
+                <input type="email" class="Form-Item-Input" th:field="*{email}" />
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label">
                     <span>パスワード</span>
                 </p>
-                <input type="password" class="Form-Item-Input" placeholder="○○○○">
+                <input type="password" class="Form-Item-Input" th:field="*{password}" />
             </div>
             <button type="submit" class="Form-Btn">登録</button>
             <button type="button" class="Form-Btn-Delete">削除</button>
