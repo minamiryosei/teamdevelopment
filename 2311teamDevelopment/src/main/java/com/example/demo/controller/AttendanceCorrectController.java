@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.AttendanceCorrectUpdateRequest;
 import com.example.demo.entity.AttendanceListEntity;
@@ -41,13 +43,13 @@ public class AttendanceCorrectController {
 			attendanceCorrectUpdateRequest.setAttendance_id(attendance.getAttendance_id());
 			attendanceCorrectUpdateRequest.setUser_id(attendance.getUser_id());
 			attendanceCorrectUpdateRequest.setStatus(attendance.getStatus());
-			attendanceCorrectUpdateRequest.setStart_date(attendance.getStart_date());
-			attendanceCorrectUpdateRequest.setStart_time(attendance.getStart_time());
-			attendanceCorrectUpdateRequest.setLeaving_date(attendance.getLeaving_date());
-			attendanceCorrectUpdateRequest.setLeaving_time(attendance.getLeaving_time());
-			attendanceCorrectUpdateRequest.setWorking_time(attendance.getWorking_time());
-			attendanceCorrectUpdateRequest.setBreak_time1(attendance.getBreak_time1());
-			attendanceCorrectUpdateRequest.setBreak_time2(attendance.getBreak_time2());
+			attendanceCorrectUpdateRequest.setStart_date(parseDate(attendance.getStart_date()));
+			attendanceCorrectUpdateRequest.setStart_time(parseTime(attendance.getStart_time()));
+			attendanceCorrectUpdateRequest.setLeaving_date(parseDate(attendance.getLeaving_date()));
+			attendanceCorrectUpdateRequest.setLeaving_time(parseTime(attendance.getLeaving_time()));
+			attendanceCorrectUpdateRequest.setWorking_time(parseTime(attendance.getWorking_time()));
+			attendanceCorrectUpdateRequest.setBreak_time1(parseTime(attendance.getBreak_time1()));
+			attendanceCorrectUpdateRequest.setBreak_time2(parseTime(attendance.getBreak_time2()));
 			attendanceCorrectUpdateRequest.setEdit_reason(attendance.getEdit_reason());
 			attendanceCorrectUpdateRequest.setComments(attendance.getComments());
 		    model.addAttribute("attendanceCorrectUpdateRequest", attendanceCorrectUpdateRequest);
@@ -59,7 +61,7 @@ public class AttendanceCorrectController {
 		   * @param  model Model
 		   * @return  勤怠情報修正画面
 		   */
-		  @RequestMapping(value = "/update", method = RequestMethod.POST)
+		  @PostMapping(value = "/update")
 		  public String update(@Validated  @ModelAttribute  AttendanceCorrectUpdateRequest attendanceCorrectUpdateRequest, BindingResult result, Model model) {
 		    if (result.hasErrors()) {
 		      List<String> errorList = new ArrayList<String>();
@@ -73,4 +75,13 @@ public class AttendanceCorrectController {
 		    attendanceService.update(attendanceCorrectUpdateRequest);
 		    return String.format("redirect:/attendanceList/%d", attendanceCorrectUpdateRequest.getAttendance_id());
 		  }
+		  
+		  public String parseDate(LocalDate localDate) {
+			  String stringDate = localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+			  return stringDate;
+			  }
+		  public String parseTime(LocalTime localTime) {
+			  String stringTime = localTime.format(DateTimeFormatter.ofPattern("HH:mm"));
+			  return stringTime;
+			  }
 }

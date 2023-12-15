@@ -29,13 +29,13 @@
          <td th:text="*{attendance_id}"></td>
          <td th:text="*{user_id}"></td>
          <td th:text="*{status}"></td>
-         <td th:text="${#dates.format(attendance_table.start_date, 'yyyy/MM/dd')}"></td>
-         <td th:text="${#dates.format(attendance_table.start_time, 'HH:mm')}"></td>
-         <td th:text="${#dates.format(attendance_table.leaving_date, 'yyyy/MM/dd')}"></td>
-         <td th:text="${#dates.format(attendance_table.leaving_time, 'HH:mm')}"></td>
-         <td th:text="${#dates.format(attendance_table.working_time, 'HH:mm')}"></td>
-         <td th:text="${#dates.format(attendance_table.break_time1, 'HH:mm')}"></td>
-         <td th:text="${#dates.format(attendance_table.break_time2, 'HH:mm')}"></td>
+         <td th:text="*{start_date}"></td>
+         <td th:text="*{start_time}"></td>
+         <td th:text="*{leaving_date}"></td>
+         <td th:text="*{leaving_time}"></td>
+         <td th:text="*{working_time}"></td>
+         <td th:text="*{break_time1}"></td>
+         <td th:text="*{break_time2}"></td>
          <td th:text="*{edit_reason}"></td>
          <td th:text="*{comments}"></td>
          <td><button type="button" class="Form-Btn1"><a th:href="@{/{attendance_id}/edit(attendance_id=*{attendance_id})}">編集</a></button></td>

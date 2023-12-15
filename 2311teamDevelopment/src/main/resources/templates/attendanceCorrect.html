@@ -13,9 +13,10 @@
       </div>
       <h1>勤怠修正</h1>
       <form th:action="@{/update}" th:object="${attendanceCorrectUpdateRequest}" method="post">
+		  <input type="hidden" th:field="*{attendance_id}">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
-          <input type="text" th:field="*{attendance_id}" class="Form-Item-Input" disabled/>
+          <input type="text" th:field="*{attendance_id}" class="Form-Item-Input">
         </div>
         <div class="Form-Item">
 		　<span class="text-danger"></span>
@@ -72,7 +73,7 @@
         <div class="Form-Item">
 			<span class="text-danger"></span>
           <p class="Form-Item-Label">修正理由</p>
-          <input type="text" class="Form-Item-Input" placeholder="例）入力ミスのため">
+          <input type="text" th:field="*{edit_reason}" class="Form-Item-Input" placeholder="例）入力ミスのため">
         </div>
         <div class="Form-Item">
 			<span class="text-danger"></span>
