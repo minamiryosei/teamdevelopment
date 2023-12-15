@@ -10,8 +10,8 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 
 <body>
-    <h1>ユーザ編集・削除</h1>
-    <form th:action="@{/UserEditDelete/update}" th:object="${userEditDeleteRequest}"
+    <h1 style="text-align:center">ユーザ編集・削除</h1>
+    <form th:action="@{/UserEdit/update}" th:object="${userEditDeleteRequest}"
     method="post">
         <div class="Form">
 			<div th:if="${validationError}" th:each="error : ${validationError}">
@@ -19,7 +19,7 @@ xmlns:th="http://www.thymeleaf.org">
 			</div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic"></span>userID</p>
-                <input type="text" class="Form-Item-Input" th:field="*{id}">
+                <input type="text" class="Form-Item-Input" th:field="*{id}"　disabled>
                 <th:if="${#fields.hasErrors('user_id)}" class="text-danger"></th:if>
             </div>
             <div class="Form-Item">
@@ -42,11 +42,13 @@ xmlns:th="http://www.thymeleaf.org">
                 <input type="password" class="Form-Item-Input" th:field="*{password}" placeholder="半角英数字8ケタ以上">
                 <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
             </div>
-            <button type="submit" class="Form-Btn">登録</button>
-            <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{id}}">削除</a></button>
+             <div class="Buttons">
+				  <button type="submit" class="Form-Btn">編集</button>
+            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{id}}">削除</a></button>
+           		  <button type="button" class="Form-Btn-Back">戻る</button>
+           		  </button>
+			 </div>
 
-            <button type="button" class="Form-Btn-Back">戻る</button>
-            </button>
         </div>
     </form>
 </body>

@@ -34,7 +34,7 @@ public class UserEditDeleteController {
 	 * @param model Model
 	 * @return ユーザー情報一覧画面
 	 */
-	@GetMapping("UserEditDelete")
+	@GetMapping("UserEditDeleteDelete")
 	public String displayList(Model model) {
 		model.addAttribute("userEditDeleteRequest", new UserEditDeleteRequest());
 		return "UserEditDelete";
@@ -70,7 +70,7 @@ public class UserEditDeleteController {
 	 * @param model Model
 	 * @return ユーザー編集画面
 	 */
-	@GetMapping("/UserEditDelete/{id}")
+	@GetMapping("/UserEdit/{id}")
 	public String displayEdit(@PathVariable Integer id, Model model) {
 		UserRegistrationEntity userRegistrationEntity = userEditDeleteService.findById(id);
 		UserEditDeleteRequest userEditDeleteRequest = new UserEditDeleteRequest();
@@ -89,7 +89,7 @@ public class UserEditDeleteController {
 	 * @param model Model
 	 * @return ユーザー情報詳細画面
 	 */
-	@PostMapping("/UserEditDelete/update")
+	@PostMapping("/UserEdit/update")
 	public String update(@Validated @ModelAttribute UserEditDeleteRequest userEditDeleteRequest, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {

@@ -141,15 +141,16 @@
     }
 }
 
+.Buttons {
+	display: flex;
+	justify-content: center;
+}
+
 .Form-Btn {
     border-radius: 6px;
-    margin-top: 32px;
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 20px;
     padding-bottom: 20px;
     width: 280px;
-    display: block;
     letter-spacing: 0.05em;
     background: #5bc8ac;
     color: #fff;
@@ -159,13 +160,8 @@
 
 .Form-Btn-Back {
     border-radius: 6px;
-    margin-top: 32px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 20px;
     padding-bottom: 20px;
     width: 280px;
-    display: block;
     letter-spacing: 0.05em;
     background: #a0a6a5;
     color: #fff;
