@@ -5,7 +5,9 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.UserRegistrationEntity;
 
+/**
+ * ユーザー情報 Repository
+ */
 @Repository
 public interface UserEditDeleteRepository extends JpaRepository<UserRegistrationEntity, Integer> {
-
 }
