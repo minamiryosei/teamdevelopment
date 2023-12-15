@@ -10,7 +10,7 @@ xmlns:th="http://www.thymeleaf.org">
 </head>
 
 <body>
-    <h1>ユーザ登録</h1>
+    <h1 style="text-align:center">ユーザ登録</h1>
     <form th:action="@{/UserRegistration/create}" th:object="${userRegistrationRequest}"
     method="post">
         <div class="Form">
@@ -19,8 +19,8 @@ xmlns:th="http://www.thymeleaf.org">
 			</div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic">自動</span>userID</p>
-                <input type="text" class="Form-Item-Input" placeholder="自動で採番されます">
-                <th:if="${#fields.hasErrors('user_id)}" class="text-danger"></th:if>
+                <input type="text" class="Form-Item-Input" placeholder="自動で採番されます" disabled>
+                <th:if="${#fields.hasErrors('user_id')}" class="text-danger"></th:if>
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>名前</p>
@@ -42,6 +42,7 @@ xmlns:th="http://www.thymeleaf.org">
                 <input type="password" class="Form-Item-Input" th:field="*{password}" placeholder="半角英数字8ケタ以上">
                 <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
             </div>
+            <div class="Buttons"></div>
             <button type="submit" class="Form-Btn">登録</button>
             <button type="button" class="Form-Btn-Back"><a th:href="@{/mypage}">戻る</a>
             </button>
