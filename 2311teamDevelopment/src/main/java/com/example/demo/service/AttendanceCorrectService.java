@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +28,7 @@ public class AttendanceCorrectService {
 	public AttendanceListEntity findById(Long attendance_id) {
 		return attendanceRepository.findById(attendance_id).get();
 	}
+	
 	/**
 	 * 勤怠情報 更新
 	 * @param  user ユーザー情報
@@ -44,4 +48,16 @@ public class AttendanceCorrectService {
 		attendance.setComments(attendanceUpdateRequest.getComments());
 		attendanceRepository.save(attendance);
 	}
+	
+	public LocalDate parseLocalDate (String date){
+		// 変換する文字列
+					String date1 = date;
+					// Stringからjava.time.LocalDateに変換する
+					LocalDate date2 = LocalDate.parse(date1, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+					return date2;
+	}
+	
+	
+	
+	
 }

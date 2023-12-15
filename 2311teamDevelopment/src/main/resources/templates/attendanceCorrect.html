@@ -12,10 +12,10 @@
         <label class="text-danger" th:text="${error}"></label>
       </div>
       <h1>勤怠修正</h1>
-      <form th:action="@{/update}" th:object="${attendanceUpdateRequest}" method="post">
+      <form th:action="@{/update}" th:object="${attendanceCorrectUpdateRequest}" method="post">
         <div class="Form-Item">
           <p class="Form-Item-Label">勤怠ID</p>
-          <input type="text" th:field="*{attendance_id}" class="Form-Item-Input" disabled>
+          <input type="text" th:field="*{attendance_id}" class="Form-Item-Input" disabled/>
         </div>
         <div class="Form-Item">
 		　<span class="text-danger"></span>

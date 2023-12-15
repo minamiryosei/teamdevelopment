@@ -37,20 +37,20 @@ public class AttendanceCorrectController {
 		  @GetMapping("/{attendance_id}/edit")
 		  public String displayEdit(@PathVariable  Long attendance_id, Model model) {
 			AttendanceListEntity attendance = attendanceService.findById(attendance_id);
-			AttendanceCorrectUpdateRequest attendanceUpdateRequest = new AttendanceCorrectUpdateRequest();
-			attendanceUpdateRequest.setAttendance_id(attendance.getAttendance_id());
-			attendanceUpdateRequest.setUser_id(attendance.getUser_id());
-			attendanceUpdateRequest.setStatus(attendance.getStatus());
-			attendanceUpdateRequest.setStart_date(attendance.getStart_date());
-			attendanceUpdateRequest.setStart_time(attendance.getStart_time());
-			attendanceUpdateRequest.setLeaving_date(attendance.getLeaving_date());
-			attendanceUpdateRequest.setLeaving_time(attendance.getLeaving_time());
-			attendanceUpdateRequest.setWorking_time(attendance.getWorking_time());
-			attendanceUpdateRequest.setBreak_time1(attendance.getBreak_time1());
-			attendanceUpdateRequest.setBreak_time2(attendance.getBreak_time2());
-			attendanceUpdateRequest.setEdit_reason(attendance.getEdit_reason());
-			attendanceUpdateRequest.setComments(attendance.getComments());
-		    model.addAttribute("attendanceUpdateRequest", attendanceUpdateRequest);
+			AttendanceCorrectUpdateRequest attendanceCorrectUpdateRequest = new AttendanceCorrectUpdateRequest();
+			attendanceCorrectUpdateRequest.setAttendance_id(attendance.getAttendance_id());
+			attendanceCorrectUpdateRequest.setUser_id(attendance.getUser_id());
+			attendanceCorrectUpdateRequest.setStatus(attendance.getStatus());
+			attendanceCorrectUpdateRequest.setStart_date(attendance.getStart_date());
+			attendanceCorrectUpdateRequest.setStart_time(attendance.getStart_time());
+			attendanceCorrectUpdateRequest.setLeaving_date(attendance.getLeaving_date());
+			attendanceCorrectUpdateRequest.setLeaving_time(attendance.getLeaving_time());
+			attendanceCorrectUpdateRequest.setWorking_time(attendance.getWorking_time());
+			attendanceCorrectUpdateRequest.setBreak_time1(attendance.getBreak_time1());
+			attendanceCorrectUpdateRequest.setBreak_time2(attendance.getBreak_time2());
+			attendanceCorrectUpdateRequest.setEdit_reason(attendance.getEdit_reason());
+			attendanceCorrectUpdateRequest.setComments(attendance.getComments());
+		    model.addAttribute("attendanceCorrectUpdateRequest", attendanceCorrectUpdateRequest);
 		    return "attendanceCorrect";
 		  }
 		  /**
@@ -60,7 +60,7 @@ public class AttendanceCorrectController {
 		   * @return  勤怠情報修正画面
 		   */
 		  @RequestMapping(value = "/update", method = RequestMethod.POST)
-		  public String update(@Validated  @ModelAttribute  AttendanceCorrectUpdateRequest attendanceUpdateRequest, BindingResult result, Model model) {
+		  public String update(@Validated  @ModelAttribute  AttendanceCorrectUpdateRequest attendanceCorrectUpdateRequest, BindingResult result, Model model) {
 		    if (result.hasErrors()) {
 		      List<String> errorList = new ArrayList<String>();
 		      for (ObjectError error : result.getAllErrors()) {
@@ -70,7 +70,7 @@ public class AttendanceCorrectController {
 		      return "attendanceCorrect";
 		    }
 		    // 勤怠情報の修正
-		    attendanceService.update(attendanceUpdateRequest);
-		    return String.format("redirect:/attendanceList/%d", attendanceUpdateRequest.getAttendance_id());
+		    attendanceService.update(attendanceCorrectUpdateRequest);
+		    return String.format("redirect:/attendanceList/%d", attendanceCorrectUpdateRequest.getAttendance_id());
 		  }
 }
