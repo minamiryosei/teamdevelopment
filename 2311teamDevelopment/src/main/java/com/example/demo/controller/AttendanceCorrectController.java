@@ -73,7 +73,7 @@ public class AttendanceCorrectController {
 		    }
 		    // 勤怠情報の修正
 		    attendanceService.update(attendanceCorrectUpdateRequest);
-		    return String.format("redirect:/attendanceList/%d", attendanceCorrectUpdateRequest.getAttendance_id());
+		    return String.format("redirect:/attendanceList", attendanceCorrectUpdateRequest.getAttendance_id());
 		  }
 		  
 		  public String parseDate(LocalDate localDate) {

@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>勤怠修正</title>
-    <link href="/css/attendanceCorrect.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>勤怠修正</title>
+	<link href="/css/attendanceCorrect.css" rel="stylesheet">
 </head>
+
 <body>
-    <div class="Form">
-      <div th:if="${validationError}" th:each="error : ${validationError}">
-        <label class="text-danger" th:text="${error}"></label>
-      </div>
-      <h1>勤怠修正</h1>
-      <form th:action="@{/update}" th:object="${attendanceCorrectUpdateRequest}" method="post">
-		  <input type="hidden" th:field="*{attendance_id}">
-        <div class="Form-Item">
-          <p class="Form-Item-Label">勤怠ID</p>
-          <input type="text" th:field="*{attendance_id}" class="Form-Item-Input">
-        </div>
-        <div class="Form-Item">
-		　<span class="text-danger"></span>
-          <p class="Form-Item-Label">UserId</p>
-          <input type="text" th:field="*{user_id}" class="Form-Item-Input">
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">ステータス</p>
-          <select name="status" th:field="*{status}" class="Form-Item-Input">
-            <option value="">ー選択して下さいー</option>
-            <option value="出勤">出勤</option>
-            <option value="遅刻">遅刻</option>
-            <option value="欠席">欠席</option>
-            <option value="代休">代休</option>
-            <option value="休日">休日</option>
-            <option value="有休">有休</option>
-            <option value="その他">その他</option>
-          </select>
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">出勤日</p>
-          <input type="date" th:field="*{start_date}" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">出勤時間</p>
-          <input type="time" th:field="*{start_time}" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">退勤日</p>
-          <input type="date" th:field="*{leaving_date}" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">退勤時間</p>
-          <input type="time" th:field="*{leaving_time}" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">稼働時間</p>
-          <input type="time" th:field="*{working_time}" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">休憩時間</p>
-          <span class="text-danger"></span>
-          <input type="time" th:field="*{break_time1}" class="Form-Item-Input">
-          <span class="text-danger"></span>
-          <input type="time" th:field="*{break_time2}" class="Form-Item-Input">
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label">修正理由</p>
-          <input type="text" th:field="*{edit_reason}" class="Form-Item-Input" placeholder="例）入力ミスのため">
-        </div>
-        <div class="Form-Item">
-			<span class="text-danger"></span>
-          <p class="Form-Item-Label isMsg">備考</p>
-          <textarea th:field="*{comments}" class="Form-Item-Textarea"></textarea>
-        </div>
-        <button type="submit" class="Form-Btn1">登録</button>
-        <button type="button" class="Form-Btn2"><a href="/attendanceList">戻る</a></button>
-      </form>
-    </div>
+	<div class="Form">
+		<div th:if="${validationError}" th:each="error : ${validationError}">
+			<label class="text-danger" th:text="${error}"></label>
+		</div>
+		<h1>勤怠修正</h1>
+		<form th:action="@{/update}" th:object="${attendanceCorrectUpdateRequest}" method="post">
+			<div class="Form-Item">
+				<p class="Form-Item-Label">勤怠ID</p>
+				<input type="text" th:field="*{attendance_id}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<p th:errors="*{user_id}" td style="color: red;"></p>
+				<p class="Form-Item-Label">UserId</p>
+				<input type="text" th:field="*{user_id}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<p th:errors="*{status}" td style="color: red;"></p>
+				<p class="Form-Item-Label">ステータス</p>
+				<select name="status" th:field="*{status}" class="Form-Item-Input">
+					<option value="">ー選択して下さいー</option>
+					<option value="出勤">出勤</option>
+					<option value="遅刻">遅刻</option>
+					<option value="欠席">欠席</option>
+					<option value="代休">代休</option>
+					<option value="休日">休日</option>
+					<option value="有休">有休</option>
+					<option value="その他">その他</option>
+				</select>
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">出勤日</p>
+				<input type="date" th:field="*{start_date}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">出勤時間</p>
+				<input type="time" th:field="*{start_time}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">退勤日</p>
+				<input type="date" th:field="*{leaving_date}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">退勤時間</p>
+				<input type="time" th:field="*{leaving_time}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">稼働時間</p>
+				<input type="time" th:field="*{working_time}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<span class="text-danger"></span>
+				<p class="Form-Item-Label">休憩時間</p>
+				<span class="text-danger"></span>
+				<input type="time" th:field="*{break_time1}" class="Form-Item-Input">
+				<span class="text-danger"></span>
+				<input type="time" th:field="*{break_time2}" class="Form-Item-Input">
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label">修正理由<span class="text-danger"></span></p>
+				<input type="text" th:field="*{edit_reason}" class="Form-Item-Input" placeholder="例）入力ミスのため">
+			</div>
+			<div class="Form-Item">
+				<p class="Form-Item-Label isMsg">備考<span class="text-danger"></span></p>
+				<textarea th:field="*{comments}" class="Form-Item-Textarea"></textarea>
+			</div>
+			<button type="submit" class="Form-Btn1">登録</button>
+			<button type="button" class="Form-Btn2"><a href="/attendanceList">戻る</a></button>
+		</form>
+	</div>
 </body>
+
 </html>

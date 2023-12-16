@@ -59,7 +59,7 @@ public class AttendanceCorrectRequest implements Serializable {
 	/*
 	 * 修正理由
 	 */
-	@Size(max = 100, message = "備考は100文字以内で入力してください")
+	@Size(max = 100, message = "修正理由は100文字以内で入力してください")
 	private String edit_reason;
 	/**
 	 *　備考
