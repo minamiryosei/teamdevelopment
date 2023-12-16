@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
   <body>
-     <h1>経費申請</h1>
       <form th:action="@{/costapplication/add}" th:object="${costApplicationRequest}" th:method="post">
-	     <div class="Form">
-		    <div th:if="${validationError}" th:each="error : ${validationError}"></div>
+	    <div class="Form">
+		 <h1>経費申請</h1>
+		  <div th:if="${validationError}" th:each="error : ${validationError}"></div>
 		  <div class="Form-whole">
           <div th:errors="*{user_id}" td style="color: red;"></div>
           <div class="Form-Item">
@@ -49,6 +49,7 @@
           </div>
           </div>
           <div class="Form-whole">
+		  <div th:errors="*{comments}" td style="color: red;"></div>
           <div class="Form-Item">
              <p class="Form-Item-Label isMsg">備考</p>
              <textarea class="Form-Item-Textarea"  th:field="*{comments}"></textarea>
