@@ -51,6 +51,11 @@ public class AttendanceEntity {
 	 */
 	@Column(name = "start_time")
 	private LocalTime startTime;
+	/**
+	 * 備考
+	 */
+	@Column(name = "comments")
+	private String comments;
 
 }
 	

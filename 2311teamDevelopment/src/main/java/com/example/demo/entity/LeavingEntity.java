@@ -24,43 +24,60 @@ public class LeavingEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "attendance_id")
-	private Integer UttendanceId;
+	private Integer attendanceId;
 	//2行追加
 	
 	/**
 	 * UserID
 	 */
 	@Column(name = "user_id")
-	private String UserId;
+	private String userId;
 
 	/**
 	 * ステータス
 	 */
 	@Column(name = "status")
-	private String Status;
+	private String status;
 
 	/**
 	 * 退勤日
 	 */
 	@Column(name = "leaving_date")
-	private LocalDate LervingDate;
+	private LocalDate leavingDate;
 
 	/**
 	 * 退勤時間
 	 */
 	@Column(name = "leaving_time")
-	private LocalTime LeavingTime;
+	private LocalTime leavingTime;
 	
 	/**
 	 * 休憩時間1
 	 */
 	@Column(name = "break_time")
-	private LocalTime BreakTime;
+	private LocalTime breakTime;
 
 	/**
 	 * 休憩時間2
 	 */
 	@Column(name = "break_times")
-	private LocalTime BreakTimes;
+	private LocalTime breakTimes;
+	
+	/**
+	 * 備考
+	 */
+	@Column(name = "comments")
+	private String comments;
+	
+	/**
+	 * 稼働時間
+	 */
+	@Column(name = "working_time")
+	private long workTime;
+	
 
-}
+
+		
+	}
+
+

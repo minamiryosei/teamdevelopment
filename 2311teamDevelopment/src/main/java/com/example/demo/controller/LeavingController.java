@@ -26,14 +26,14 @@ public class LeavingController {
 	@Autowired
 private LeavingService leavingService;
 	
-	 @GetMapping(value = "templates/leaving{@attendance_id}")
+	 @GetMapping(value = "/leaving")
 	  public String displayAdd(Model model) {
 	    model.addAttribute("leavingRequest", new LeavingRequest());
 	    return "leaving";
 	  }
 			
 		//退勤登録
-	@PostMapping("/leaving")
+	@PostMapping("/leaving/add")
 	public String create(@Validated @ModelAttribute LeavingRequest leavingRequest, BindingResult result,
 			Model model) {
 		//入力判定
@@ -45,12 +45,11 @@ private LeavingService leavingService;
 			}
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
-			model.addAttribute("leavingRequest", leavingRequest);
 			return "leaving";
 		}
 		// 退勤情報の登録
 	leavingService.create(leavingRequest);
-		return "redirect:/templates/leaving";
+		return "leaving";
 	}	
 	    
 
