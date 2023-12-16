@@ -70,6 +70,6 @@ public class AttendanceCorrectController {
 		    }
 		    // ユーザー情報の更新)
 		    attendanceService.update(attendanceUpdateRequest);
-		    return String.format("redirect:/attendanceList/%d", attendanceUpdateRequest.getAttendance_id());
+		    return String.format("redirect:/attendanceList", attendanceUpdateRequest.getAttendance_id());
 		  }
 }
