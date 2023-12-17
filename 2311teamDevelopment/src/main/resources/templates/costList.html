@@ -24,7 +24,7 @@
           <tr th:each="tb_cost : ${list}" th:object="${tb_cost}">
             <td th:text="*{cost_id}"></td>
             <td th:text="*{user_id}"></td>
-            <td th:text="*{application_day}"></td>
+            <td th:text="*{#dates.format(application_day, 'yyyy/MM/dd')}"></td>
             <td th:text="*{category}"></td>
             <td th:text="*{cost}"></td>
             <td th:text="*{comments}"></td>
