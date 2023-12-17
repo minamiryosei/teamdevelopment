@@ -10,7 +10,6 @@
     }
   }
   .Form-Item {
-    border-top: 1px solid #ddd;
     padding-top: 24px;
     padding-bottom: 24px;
     width: 100%;
@@ -164,4 +163,7 @@
   }
   a {
 	color: white;
+  }
+  .Form-whole {
+	  border-top: 1px solid #ddd;
   }
