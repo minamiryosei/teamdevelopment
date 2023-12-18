@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 	<meta charset="UTF-8">
@@ -15,15 +15,14 @@
 	<div class="Form">
 		<h1>退勤報告</h1>
 
-		<form th:action="@{/leaving/add}" th:object="${leavingRequest}" method="post">
+		<form th:action="@{/leaving/add}" th:object="${request}" method="post">
 			<div th:if="${validationError}" th:each="error : ${validationError}"></div>
 
 			<div class="Form-Item">
 				<p class="Form-Item-Label">
 					<label><span class="Form-Item-Label-Required Autoarea">自動</span>勤怠ID</label>
 				</p>
-				<input type="text" th:field="*{attendanceId}" class="Form-Item-Input" placeholder="自動で採番されます" disabled>
-			</div>
+				<input type="text" th:field="*{attendanceId}" class="Form-Item-Input"></div>
 
 			<div th:errors="*{userId}" td style="color: red;"></div>
 			<div class="Form-Item">

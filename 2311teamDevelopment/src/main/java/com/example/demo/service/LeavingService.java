@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.AttendanceRequest;
 import com.example.demo.dto.LeavingRequest;
@@ -14,11 +13,19 @@ import com.example.demo.entity.LeavingEntity;
 import com.example.demo.repository.LeavingRepository;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
+
 public class LeavingService {
+	
 	@Autowired
 	private LeavingRepository leavingRepository;
 
+	
+	
+	public LeavingEntity getAttendance_id(Integer attendance_id) {
+        return leavingRepository.getOne(attendance_id);
+
+    }
+	
 	//退勤新規登録
 	public void create(LeavingRequest leavingRequest) {
 		LeavingEntity attendance = new LeavingEntity();

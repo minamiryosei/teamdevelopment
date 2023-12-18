@@ -31,7 +31,7 @@ public class LeavingEntity {
 	 * UserID
 	 */
 	@Column(name = "user_id")
-	private String userId;
+	private Integer userId;
 
 	/**
 	 * ステータス
@@ -54,13 +54,13 @@ public class LeavingEntity {
 	/**
 	 * 休憩時間1
 	 */
-	@Column(name = "break_time")
+	@Column(name = "break_time1")
 	private LocalTime breakTime;
 
 	/**
 	 * 休憩時間2
 	 */
-	@Column(name = "break_times")
+	@Column(name = "break_time2")
 	private LocalTime breakTimes;
 	
 	/**
@@ -73,7 +73,7 @@ public class LeavingEntity {
 	 * 稼働時間
 	 */
 	@Column(name = "working_time")
-	private long workTime;
+	private LocalTime workTime;
 	
 
 

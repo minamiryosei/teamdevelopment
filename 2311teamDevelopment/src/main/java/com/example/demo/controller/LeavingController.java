@@ -11,9 +11,11 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dto.LeavingRequest;
+import com.example.demo.entity.LeavingEntity;
 import com.example.demo.service.LeavingService;
 
 
@@ -21,18 +23,20 @@ import com.example.demo.service.LeavingService;
 @Controller
 public class LeavingController {
 	/**
-	   * ユーザー情報 Service
-	   */
+	 * ユーザー情報 Service
+	 */
 	@Autowired
-private LeavingService leavingService;
-	
-	 @GetMapping(value = "/leaving")
-	  public String displayAdd(Model model) {
-	    model.addAttribute("leavingRequest", new LeavingRequest());
-	    return "leaving";
-	  }
-			
-		//退勤登録
+	private LeavingService leavingService;
+
+	@GetMapping("/leaving/{attendance_id}")
+	public String displayAdd(@PathVariable Integer attendance_id, Model model) {
+		
+		LeavingEntity leavingRequest = leavingService.getAttendance_id(attendance_id);
+		model.addAttribute("request", leavingRequest);
+		return "leaving";
+	}
+
+	//退勤登録
 	@PostMapping("/leaving/add")
 	public String create(@Validated @ModelAttribute LeavingRequest leavingRequest, BindingResult result,
 			Model model) {
@@ -48,10 +52,10 @@ private LeavingService leavingService;
 			return "leaving";
 		}
 		// 退勤情報の登録
-	leavingService.create(leavingRequest);
+		leavingService.create(leavingRequest);
 		return "leaving";
 	}	
-	    
+
 
 
 
