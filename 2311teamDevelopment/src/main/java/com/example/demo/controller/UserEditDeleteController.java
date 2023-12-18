@@ -70,11 +70,11 @@ public class UserEditDeleteController {
 	 * @param model Model
 	 * @return ユーザー編集画面
 	 */
-	@GetMapping("/UserEdit/{id}")
-	public String displayEdit(@PathVariable Integer id, Model model) {
-		UserRegistrationEntity userRegistrationEntity = userEditDeleteService.findById(id);
+	@GetMapping("/UserEdit/{user_id}")
+	public String displayEdit(@PathVariable Integer user_id, Model model) {
+		UserRegistrationEntity userRegistrationEntity = userEditDeleteService.findById(user_id);
 		UserEditDeleteRequest userEditDeleteRequest = new UserEditDeleteRequest();
-		userEditDeleteRequest.setId(userRegistrationEntity.getUser_id());
+		userEditDeleteRequest.setUser_id(userRegistrationEntity.getUser_id());
 		userEditDeleteRequest.setName(userRegistrationEntity.getName());
 		userEditDeleteRequest.setKana(userRegistrationEntity.getKana());
 		userEditDeleteRequest.setEmail(userRegistrationEntity.getEmail());
@@ -104,7 +104,7 @@ public class UserEditDeleteController {
 
 		// ユーザー情報の更新
 		userEditDeleteService.update(userEditDeleteRequest);
-		return String.format("redirect:/UserEditDelete/%d", userEditDeleteRequest.getId());
+		return String.format("redirect:/UserEditDelete/%d", userEditDeleteRequest.getUser_id());
 	}
 
 	/**
@@ -113,10 +113,10 @@ public class UserEditDeleteController {
 	 * @param model Model
 	 * @return ユーザー情報詳細画面
 	 */
-	@GetMapping("/UserDelete/{id}")
-	public String delete(@PathVariable Integer id, Model model) {
+	@GetMapping("/UserDelete/{user_id}")
+	public String delete(@PathVariable Integer user_id, Model model) {
 		// ユーザー情報の削除
-		userEditDeleteService.delete(id);
+		userEditDeleteService.delete(user_id);
 		return "myPage";
 	}
 

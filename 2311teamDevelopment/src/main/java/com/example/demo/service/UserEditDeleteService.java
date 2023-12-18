@@ -33,7 +33,7 @@ public class UserEditDeleteService {
 	 * @param user ユーザー情報
 	 */
 	public void update(UserEditDeleteRequest userEditDeleteRequest) {
-		UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getId());
+		UserRegistrationEntity userRegistrationEntity = findById(userEditDeleteRequest.getUser_id());
 		userRegistrationEntity.setName(userEditDeleteRequest.getName());
 		userRegistrationEntity.setKana(userEditDeleteRequest.getKana());
 		userRegistrationEntity.setEmail(userEditDeleteRequest.getEmail());

@@ -19,7 +19,7 @@ xmlns:th="http://www.thymeleaf.org">
 			</div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic"></span>userID</p>
-                <input type="text" class="Form-Item-Input" th:field="*{id}"　disabled>
+                <input type="text" class="Form-Item-Input" th:field="*{user_id}"　readonly>
                 <th:if="${#fields.hasErrors('user_id)}" class="text-danger"></th:if>
             </div>
             <div class="Form-Item">
@@ -44,7 +44,7 @@ xmlns:th="http://www.thymeleaf.org">
             </div>
              <div class="Buttons">
 				  <button type="submit" class="Form-Btn">編集</button>
-            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{id}}">削除</a></button>
+            	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{user_id}}">削除</a></button>
            		  <button type="button" class="Form-Btn-Back">戻る</button>
            		  </button>
 			 </div>

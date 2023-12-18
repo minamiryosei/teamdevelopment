@@ -36,5 +36,5 @@ public class UserEditDeleteRequest implements Serializable {
 	private String password;
 
 	@NotNull
-	private Integer id;
+	private Integer user_id;
 }
