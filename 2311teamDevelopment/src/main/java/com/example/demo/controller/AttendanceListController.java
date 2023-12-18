@@ -29,4 +29,8 @@ import com.example.demo.service.AttendanceListService;
 	    model.addAttribute("attendancelist",attendancelist);
 	    return "attendanceList";
 		}
+		@GetMapping(value = "/mypage")
+		public String displayList1(Model model){
+		return "mypage";
+		}
 	}
