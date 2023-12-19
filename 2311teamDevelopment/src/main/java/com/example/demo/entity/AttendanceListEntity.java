@@ -1,8 +1,8 @@
 
 package com.example.demo.entity;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name = "attendance" , schema = "public" )
+@Table(name = "attendance_table" , schema = "public" )
 public class AttendanceListEntity  {
 
 	/**
@@ -42,37 +42,42 @@ public class AttendanceListEntity  {
 	 * 出勤日
 	 */
 	@Column(name ="start_date")
-	private Date start_date;
+	private LocalDate start_date;
 	/**
 	 * 出勤時間
 	 */
 	@Column(name = "start_time")
-	private Time start_time;
+	private LocalTime start_time;
 	/**
 	 * 退勤日
 	 */
 	@Column(name = "leaving_date")
-	private Date leaving_date;
+	private LocalDate leaving_date;
 	/**
 	 * 退勤時間
 	 */
 	@Column(name = "leaving_time")
-	private Time leaving_time;
+	private LocalTime leaving_time;
 	/**
 	 * 稼働時間
 	 */
 	@Column(name = "working_time")
-	private Time working_time;
+	private LocalTime working_time;
 	/**
 	 * 休憩時間１
 	 */
 	@Column(name = "break_time1")
-	private Time break_time1;
+	private LocalTime break_time1;
 	/**
 	 * 休憩時間２
 	 */
 	@Column(name = "break_time2")
-	private Time break_time2;
+	private LocalTime break_time2;
+	/**
+	 * 修正理由
+	 */
+	@Column(name = "edit_reason")
+	private String edit_reason;
 	/**
 	 * 備考
 	 */

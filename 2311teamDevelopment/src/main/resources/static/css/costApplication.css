@@ -2,11 +2,14 @@
     margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
-    max-width: 720px;
+    max-width: 720px; 
+  }
+  
+  .Form-whole{
+    border-top: 1px solid #ddd;
   }
   
   .Form-Item {
-    border-top: 1px solid #ddd;
     padding-top: 24px;
     padding-bottom: 24px;
     width: 100%;
@@ -30,6 +33,7 @@
     margin-top: 8px;
     margin-bottom: auto;
   }
+  
   
   .Form-Item-Label-Required {
     border-radius: 6px;

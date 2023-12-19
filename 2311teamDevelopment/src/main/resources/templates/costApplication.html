@@ -1,50 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/costApplication.css">
+    <link rel="stylesheet" href="../css/costApplication.css">
     <title>Document</title>
 </head>
-<body>
-    <div class="Form">
-      <h1>経費申請</h1>
-        <div class="Form-Item">
-          <p class="Form-Item-Label">
-            <span class="Form-Item-Label-Required">必須</span>UserID
-          </p>
-          <input type="text" class="Form-Item-Input" placeholder="例）team2309">
+  <body>
+      <form th:action="@{/costapplication/add}" th:object="${costApplicationRequest}" th:method="post">
+	    <div class="Form">
+		 <h1>経費申請</h1>
+		  <div th:if="${validationError}" th:each="error : ${validationError}"></div>
+		  <div class="Form-whole">
+          <div th:errors="*{user_id}" td style="color: red;"></div>
+          <div class="Form-Item">
+	          <p class="Form-Item-Label">
+            <span class="Form-Item-Label-Required">必須</span>UserID</p>
+            <input type="text" class="Form-Item-Input" th:field="*{user_id}" placeholder="例）team2309">
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{application_day}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label">
+		        <span class="Form-Item-Label-Required">必須</span>申請日</p>
+            <input type="date" class="Form-Item-Input"  th:field="*{application_day}">
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{category}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>項目</p>
+            <select name="status" class="Form-Item-Input" th:field="*{category}"> 
+              <option value="">ー選択して下さいー</option>
+              <option value="交通費">交通費</option>
+              <option value="家賃補助">家賃補助</option>
+              <option value="物品購入">物品購入</option>
+              <option value="宿泊費">宿泊費</option>
+              <option value="その他">その他</option>
+             </select>
+          </div>
+          </div>
+          <div class="Form-whole">
+          <div th:errors="*{cost}" td style="color: red;"></div>
+          <div class="Form-Item">
+            <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>金額</p>
+            <input type="number" class="Form-Item-Input"  th:field="*{cost}" placeholder="例）24980">
+          </div>
+          </div>
+          <div class="Form-whole">
+		  <div th:errors="*{comments}" td style="color: red;"></div>
+          <div class="Form-Item">
+             <p class="Form-Item-Label isMsg">備考</p>
+             <textarea class="Form-Item-Textarea"  th:field="*{comments}"></textarea>
+          </div>
+          </div>
+          <div>
+            <button type="submit" class="button1">登録</button>
+          </div>
+          <div>
+           <button type="button" class="button2"><a th:href="@{/mypage}">戻る</a></button>
         </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>申請日</p>
-          <input type="date" class="Form-Item-Input" >
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>項目</p>
-          <select name="status" class="Form-Item-Input">
-            <option value="">ー選択して下さいー</option>
-            <option value="transportation">交通費</option>
-            <option value="rent_subsidy">家賃補助</option>
-            <option value="purchase_cost">物品購入</option>
-            <option value="accommodation_cost">宿泊費</option>
-            <option value="others">その他</option>
-          </select>
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>金額</p>
-          <input type="number" class="Form-Item-Input" placeholder="例）24980">
-        </div>
-        <div class="Form-Item">
-          <p class="Form-Item-Label isMsg">備考</p>
-          <textarea class="Form-Item-Textarea"></textarea>
-        </div>
-        <div>
-        <button type="submit" class="button1">登録</button>
       </div>
-      <div>
-        <button type="submit" class="button2">戻る
-        </button>
-      </div>
-      </div>
+    </form>
   </body>
 </html>

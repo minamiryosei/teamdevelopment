@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/costList.css">
+    <link rel="stylesheet" href="../css/costList.css">
     <title>Document</title>
 </head>
 <body>
@@ -21,10 +21,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr th:each="user : ${userlist}" th:object="${user}">
+          <tr th:each="tb_cost : ${list}" th:object="${tb_cost}">
             <td th:text="*{cost_id}"></td>
             <td th:text="*{user_id}"></td>
-            <td th:text="*{application_day}"></td>
+            <td th:text="*{#dates.format(application_day, 'yyyy/MM/dd')}"></td>
             <td th:text="*{category}"></td>
             <td th:text="*{cost}"></td>
             <td th:text="*{comments}"></td>
@@ -32,7 +32,7 @@
         </tbody>
       </table>
       <div>
-      <button type="submit" class="button1">戻る</button>
+      <button type="button" class="bottun1"><a th:href="mypage">戻る</a></button>
     </div>
   </body>
-  </html>
+</html>
