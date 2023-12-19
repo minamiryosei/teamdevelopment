@@ -11,32 +11,34 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.dto.AttendanceRequest;
-import com.example.demo.service.AttendanceService;
+import com.example.demo.dto.LeavingRequest;
+import com.example.demo.entity.LeavingEntity;
+import com.example.demo.service.LeavingService;
 
-/**
- * ユーザー情報 Controller
- */
+
+
 @Controller
-public class AttendanceController {
+public class LeavingController {
 	/**
-	   * ユーザー情報 Service
-	   */
+	 * ユーザー情報 Service
+	 */
 	@Autowired
-	private AttendanceService attendanceService;
+	private LeavingService leavingService;
 
+	@GetMapping("/leaving/{attendance_id}")
+	public String displayAdd(@PathVariable Integer attendance_id, Model model) {
 		
-		 @GetMapping(value = "/attendance")
-		  public String displayAdd(Model model) {
-		    model.addAttribute("attendanceRequest", new AttendanceRequest());
-		    return "attendance";
-		  }
-			
-		//出勤登録
-	@PostMapping("/attendance/add")
-	public String create(@Validated @ModelAttribute AttendanceRequest attendanceRequest, BindingResult result,
+		LeavingEntity leavingRequest = leavingService.getAttendance_id(attendance_id);
+		model.addAttribute("request", leavingRequest);
+		return "leaving";
+	}
+
+	//退勤登録
+	@PostMapping("/leaving/add")
+	public String create(@Validated @ModelAttribute LeavingRequest leavingRequest, BindingResult result,
 			Model model) {
 		//入力判定
 		if (result.hasErrors()) {
@@ -47,14 +49,15 @@ public class AttendanceController {
 			}
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
-			return "attendance";
+			return "leaving";
 		}
-		// 出勤情報の登録
-		attendanceService.create(attendanceRequest);
-		return "attendance";
+		// 退勤情報の登録
+		leavingService.create(leavingRequest);
+		return "leaving";
 	}	
-	    
 
 
 
-	  }
+
+
+}

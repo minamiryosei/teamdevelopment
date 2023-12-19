@@ -131,6 +131,10 @@
   font-weight: bold;
   font-size: 20px;
 }
+.validation p {
+	color: red;
+
+}
 @media screen and (max-width: 480px) {
   .Form {
     margin-top: 40px;
