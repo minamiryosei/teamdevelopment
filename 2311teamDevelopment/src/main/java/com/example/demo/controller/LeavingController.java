@@ -53,6 +53,7 @@ public class LeavingController {
 		}
 		// 退勤情報の登録
 		leavingService.create(leavingRequest);
+		model.addAttribute("leavingRequest", leavingRequest);
 		return "leaving";
 	}	
 

@@ -50,6 +50,7 @@ public class LeavingRequest implements Serializable{
    */
   @NotEmpty( message = "休憩終了時間を入力してください")
 //  @DateTimeFormat(iso = DateTimeFormat.ISO.TIME)
+	private String breakTimes;
   /**
    *備考
    */
@@ -57,7 +58,7 @@ public class LeavingRequest implements Serializable{
   private String comments;
   
 //  稼働時間
-  private String  breakTimes;
+  private String  workTime;
   /**
    * 勤怠ID
    */

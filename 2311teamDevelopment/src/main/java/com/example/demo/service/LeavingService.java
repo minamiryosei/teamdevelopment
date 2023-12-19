@@ -67,7 +67,7 @@ public class LeavingService {
 		long workHours = calculateWorkTimeInMinutes(localStartTime, localLeavingTime);
 		
 		long workTime = workHours - breakTime;
-		attendance.setWorkTime(workTime);
+//		attendance.setWorkTime(workTime);
 		
 		leavingRepository.save(attendance);
 	}
