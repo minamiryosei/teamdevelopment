@@ -13,4 +13,4 @@ public class mypageController {
 	   return "mypage";
 	   
 	}
-}
+}|
