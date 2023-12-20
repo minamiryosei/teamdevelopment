@@ -2,11 +2,7 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import org.hibernate.validator.constraints.Length;
-
 import lombok.Data;
 
 @SuppressWarnings("serial")
