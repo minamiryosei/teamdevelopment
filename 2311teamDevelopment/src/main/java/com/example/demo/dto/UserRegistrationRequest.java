@@ -20,11 +20,8 @@ public class UserRegistrationRequest implements Serializable {
 	private String kana;
 
 	@NotEmpty(message="メールアドレスを入力してください")
-	@Email(message="メールアドレスの形式で入力してください")
 	private String email;
 
 	@NotEmpty(message="パスワードを入力してください")
-	@Length(min= 8, message="パスワードは8桁以上で入力してください")
-	@Pattern(regexp= "^[a-zA-Z0-9]+$", message="パスワードは半角英数字で入力してください")
 	private String password;
 }
