@@ -15,7 +15,7 @@ xmlns:th="http://www.thymeleaf.org">
     method="post">
         <div class="Form">
 			<div th:if="${validationError}" th:each="error : ${validationError}">
-				<label class="text-danger" th:text="${error}"></label>
+				<label class="text-danger" td style="color: red;" th:text="${error}"></label>
 			</div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic">自動</span>userID</p>
@@ -42,7 +42,6 @@ xmlns:th="http://www.thymeleaf.org">
                 <input type="password" class="Form-Item-Input" th:field="*{password}" placeholder="半角英数字8ケタ以上">
                 <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
             </div>
-            <div class="Buttons"></div>
             <button type="submit" class="Form-Btn">登録</button>
             <button type="button" class="Form-Btn-Back"><a th:href="@{/mypage}">戻る</a>
             </button>
