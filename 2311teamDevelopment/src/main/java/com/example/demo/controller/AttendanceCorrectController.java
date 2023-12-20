@@ -75,6 +75,7 @@ public class AttendanceCorrectController {
 		    attendanceService.update(attendanceCorrectUpdateRequest);
 		    return String.format("redirect:/attendanceList", attendanceCorrectUpdateRequest.getAttendance_id());
 		  }
+		  
 		  public String parseDate(LocalDate localDate) {
 			  String stringDate = localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 			  return stringDate;
