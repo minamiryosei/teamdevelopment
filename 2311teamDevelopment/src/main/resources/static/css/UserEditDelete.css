@@ -134,6 +134,7 @@
 }
 
 .Form-Btn {
+	margin-right: 20px;
     border-radius: 6px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -146,6 +147,7 @@
 }
 
 .Form-Btn-Delete {
+	margin-right: 20px;
     border-radius: 6px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -155,6 +157,11 @@
     color: #fff;
     font-weight: bold;
     font-size: 20px;
+}
+
+a {
+	text-decoration: none;
+    color: #fff;
 }
 
 .Form-Btn-Back {

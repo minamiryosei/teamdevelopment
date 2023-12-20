@@ -24,8 +24,8 @@ public class UserEditDeleteService {
 	 * ユーザー情報 主キー検索
 	 * @return 検索結果
 	 */
-	public UserRegistrationEntity findById(Integer id) {
-		return userEditDeleteRepository.getOne(id);
+	public UserRegistrationEntity findById(Integer user_id) {
+		return userEditDeleteRepository.getOne(user_id);
 	}
 
 	/**
@@ -45,8 +45,8 @@ public class UserEditDeleteService {
 	 * ユーザー情報 物理削除
 	 * @param id ユーザーID
 	 */
-	public void delete(Integer id) {
-		UserRegistrationEntity userRegistrationEntity = findById(id);
+	public void delete(Integer user_id) {
+		UserRegistrationEntity userRegistrationEntity = findById(user_id);
 		userEditDeleteRepository.delete(userRegistrationEntity);
 	}
 }
