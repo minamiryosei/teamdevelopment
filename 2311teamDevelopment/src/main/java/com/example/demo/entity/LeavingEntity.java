@@ -38,6 +38,13 @@ public class LeavingEntity {
 	 */
 	@Column(name = "status")
 	private String status;
+	
+	/**
+	 * 出勤時間
+	 */
+	@Column(name = "start_time")
+	private LocalTime startTime;
+
 
 	/**
 	 * 退勤日
