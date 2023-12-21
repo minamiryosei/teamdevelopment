@@ -30,17 +30,6 @@ public class UserEditDeleteController {
 	private UserEditDeleteService userEditDeleteService;
 
 	/**
-	 * ユーザー情報一覧画面を表示
-	 * @param model Model
-	 * @return ユーザー情報一覧画面
-	 */
-	@GetMapping("UserEditDeleteDelete")
-	public String displayList(Model model) {
-		model.addAttribute("userEditDeleteRequest", new UserEditDeleteRequest());
-		return "UserEditDelete";
-	}
-
-	/**
 	 * ユーザー新規登録画面を表示
 	 * @param model Model
 	 * @return ユーザー情報一覧画面
