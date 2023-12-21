@@ -43,9 +43,9 @@ xmlns:th="http://www.thymeleaf.org">
                 <th:if="${#fields.hasErrors('password')}" class="text-danger"></th:if>
             </div>
              <div class="Buttons">
-				  <button type="submit" class="Form-Btn">編集</button>
+				  <button type="submit" class="Form-Btn"><a th:href="@{/mypage}">編集</a></button>
             	  <button type="button" class="Form-Btn-Delete"><a th:href="@{/UserDelete/{user_id}(user_id=*{user_id})}">削除</a></button>
-           		  <button type="button" class="Form-Btn-Back">戻る</button>
+           		  <button type="button" class="Form-Btn-Back"><a th:href="@{/mypage}">戻る</a></button>
            		  </button>
 			 </div>
 
