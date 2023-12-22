@@ -6,4 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.entity.costListEntity;
 
 @Repository
-public interface costListRepository extends JpaRepository<costListEntity, Long> {}
+public interface costListRepository extends JpaRepository<costListEntity, Integer> {}
