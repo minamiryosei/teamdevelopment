@@ -15,14 +15,15 @@
 	<div class="Form">
 		<h1>退勤報告</h1>
 
-		<form th:action="@{/leaving/add}" th:object="${request}" method="post">
+		<!--		<form th:action="@{/leaving/add}" th:object="${request}" method="post">-->
+		<form th:action="@{/leaving/add}" th:object="${leavingRequest}" method="post">
 			<div th:if="${validationError}" th:each="error : ${validationError}"></div>
-			<div th:errors="*{leavingTime}" td style="color: red;"></div>
+
 			<div class="Form-Item">
 				<p class="Form-Item-Label">
 					<label><span class="Form-Item-Label-Required Autoarea">自動</span>勤怠ID</label>
 				</p>
-				<input type="number" th:field="*{attendanceId}" class="Form-Item-Input">
+				<input type="number" th:field="*{attendanceId}" class="Form-Item-Input" readonly>
 			</div>
 			<input type="hidden" th:field="*{startTime}" id="time" class="Form-Item-Input">
 			<div th:errors="*{userId}" td style="color: red;"></div>
@@ -30,7 +31,7 @@
 				<p class="Form-Item-Label">
 					<span class="Form-Item-Label-Required">必須</span>UserId
 				</p>
-				<input type="text" th:field="*{userId}" class="Form-Item-Input" placeholder="例）100056">
+				<input type="text" th:field="*{userId}" class="Form-Item-Input" placeholder="例）100056" readonly>
 			</div>
 
 			<div class="Form-Item">
@@ -46,25 +47,26 @@
 				</select>
 			</div>
 
-			<div th:errors="*{leavingDate}" td style="color: red;"></div>
+
 			<div class="Form-Item">
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>退勤日</p>
 				<input type="date" th:field="*{leavingDate}" id="date" class="Form-Item-Input">
 			</div>
-
+			<div th:errors="*{leavingDate}" td style="color: red;"></div>
 
 			<div class="Form-Item">
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>退勤時間</p>
 				<input type="time" th:field="*{leavingTime}" id="time" class="Form-Item-Input">
 			</div>
+			<div th:errors="*{leavingTime}" td style="color: red;"></div>
 
-			<div th:errors="*{breakTime}" td style="color: red;"></div>
-			<div th:errors="*{breakTimes}" td style="color: red;"></div>
 			<div class="Form-Item">
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>休憩時間</p>
 				<input type="time" th:field="*{breakTime}" id="time" class="Form-Item-Input">
 				<input type="time" th:field="*{breakTimes}" id="time" class="Form-Item-Input">
 			</div>
+			<div th:errors="*{breakTime}" td style="color: red;"></div>
+			<div th:errors="*{breakTimes}" td style="color: red;"></div>
 
 			<div class="Form-Item">
 				<p class="Form-Item-Label isMsg"><span class="Textarea"></span>備考</p>
@@ -72,7 +74,7 @@
 			</div>
 
 			<button type="submit" class="button1">登録</button>
-			<button type="button" class="button2">戻る</button>
+			<button type="button" class="button2"><a th:href="@{/mypage}">戻る</a></button>
 	</div>
 	</form>
 </body>

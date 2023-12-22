@@ -51,7 +51,7 @@ public class AttendanceController {
 		}
 		// 出勤情報の登録
 		attendanceService.create(attendanceRequest);
-		return "attendance";
+		return "mypage";
 	}	
 	    
 

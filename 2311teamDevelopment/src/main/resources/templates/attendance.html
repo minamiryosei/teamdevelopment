@@ -16,13 +16,14 @@
 		<form th:action="@{/attendance/add}" th:object="${attendanceRequest}" method="post">
 			<div th:if="${validationError}" th:each="error : ${validationError}"></div>
 
-			<div th:errors="*{userId}" td style="color: red;"></div>
+
 			<div class="Form-Item">
 				<p class="Form-Item-Label">
 					<span class="Form-Item-Label-Required">必須</span>UserId
 				</p>
 				<input type="text" th:field="*{userId}" class="Form-Item-Input" placeholder="例）100056">
 			</div>
+			<div th:errors="*{userId}" td style="color: red;"></div>
 
 			<div class="Form-Item">
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>ステータス</p>
@@ -37,17 +38,20 @@
 				</select>
 			</div>
 
-			<div th:errors="*{startDate}" td style="color: red;"></div>
+
 			<div class="Form-Item">
+
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤日</p>
 				<input type="date" th:field="*{startDate}" Status id="date" class="Form-Item-Input">
 			</div>
+			<div th:errors="*{startDate}" td style="color: red;"></div>
 
-			<div th:errors="*{startTime}" td style="color: red;"></div>
+
 			<div class="Form-Item">
 				<p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>出勤時間</p>
 				<input type="time" th:field="*{startTime}" id="time" class="Form-Item-Input">
 			</div>
+			<div th:errors="*{startTime}" td style="color: red;"></div>
 
 			<div class="Form-Item">
 				<p class="Form-Item-Label isMsg">備考</p>
@@ -56,7 +60,7 @@
 
 
 			<button type="submit" class="button1">登録</button>
-			<button type="button" class="button2">戻る</button>
+			<button type="button" class="button2"><a th:href="@{/mypage}">戻る</a></button>
 	</div>
 	</form>
 </body>

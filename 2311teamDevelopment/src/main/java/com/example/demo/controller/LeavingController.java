@@ -32,7 +32,8 @@ public class LeavingController {
 	public String displayAdd(@PathVariable Integer attendance_id, Model model) {
 		
 		LeavingEntity leavingRequest = leavingService.getAttendance_id(attendance_id);
-		model.addAttribute("request", leavingRequest);
+//		model.addAttribute("request", leavingRequest);
+		model.addAttribute("leavingRequest", leavingRequest);
 		return "leaving";
 	}
 
@@ -47,7 +48,8 @@ public class LeavingController {
 			for (ObjectError error : result.getAllErrors()) {
 				errorList.add(error.getDefaultMessage());
 			}
-			model.addAttribute("request", leavingRequest);
+//			model.addAttribute("request", leavingRequest);
+			model.addAttribute("leavingRequest", leavingRequest);
 			//エラー判定後の画面遷移
 			model.addAttribute("validationError", errorList);
 			return "leaving";
@@ -55,7 +57,7 @@ public class LeavingController {
 		// 退勤情報の登録
 		leavingService.create(leavingRequest);
 		model.addAttribute("leavingRequest", leavingRequest);
-		return "/attendance";
+		return "mypage";
 	}	
 
 

@@ -60,7 +60,7 @@ public class LeavingRequest implements Serializable{
 	private String comments;
 
 	//  稼働時間
-	private LocalTime  workTime;
+	private LocalTime workTime;
 
 	/**
 	 * 勤怠ID
