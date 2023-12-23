@@ -93,7 +93,7 @@ public class UserEditDeleteController {
 
 		// ユーザー情報の更新
 		userEditDeleteService.update(userEditDeleteRequest);
-		return String.format("redirect:/UserEditDelete/%d", userEditDeleteRequest.getUser_id());
+		return "myPage";
 	}
 
 	/**
