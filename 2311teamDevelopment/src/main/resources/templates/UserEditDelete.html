@@ -20,7 +20,7 @@ xmlns:th="http://www.thymeleaf.org">
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required-automatic"></span>userID</p>
                 <input type="text" class="Form-Item-Input" th:field="*{user_id}"　readonly>
-                <th:if="${#fields.hasErrors('user_id)}" class="text-danger"></th:if>
+                <th:if="${#fields.hasErrors('user_id')}" class="text-danger"></th:if>
             </div>
             <div class="Form-Item">
                 <p class="Form-Item-Label"><span class="Form-Item-Label-Required">必須</span>名前</p>
