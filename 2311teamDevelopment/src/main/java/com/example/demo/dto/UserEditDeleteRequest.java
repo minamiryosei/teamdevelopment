@@ -24,6 +24,6 @@ public class UserEditDeleteRequest implements Serializable {
 	@NotEmpty(message="パスワードを入力してください")
 	private String password;
 
-	@NotEmpty
+
 	private Integer user_id;
 }
