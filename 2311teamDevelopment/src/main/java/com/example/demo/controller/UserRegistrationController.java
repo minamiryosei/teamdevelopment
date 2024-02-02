@@ -12,6 +12,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import com.example.demo.dto.UserRegistrationRequest;
 import com.example.demo.service.UserRegistrationService;
 
@@ -21,7 +22,7 @@ public class UserRegistrationController {
 	@Autowired
 	private UserRegistrationService userRegistrationService;
 
-	@GetMapping("UserRegistration")
+	@GetMapping("/UserRegistration")
 	public String displayAdd(Model model) {
 		model.addAttribute("userRegistrationRequest", new UserRegistrationRequest());
 		return "UserRegistration";
